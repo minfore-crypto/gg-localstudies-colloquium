@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>경기지역학 콜로키움 02 기록</title>
+<style>
+:root{
+  --bg:#f4f6f9; --surface:#ffffff; --surface2:#fafbfd;
+  --ink:#151922; --ink2:#39414f; --muted:#6b7585;
+  --line:#e2e6ee; --line2:#eef1f6;
+  --navy:#1b3a5e; --navy2:#2d5786; --navyTint:#eaf0f7;
+  --amber:#a2570b; --amberTint:#fdf3e3;
+  --teal:#0f6b64; --tealTint:#e6f4f2;
+  --plum:#6b2d63; --plumTint:#f6ebf4;
+  --star:#b8860b;
+  --shadow:0 1px 2px rgba(20,30,50,.05), 0 8px 24px rgba(20,30,50,.06);
+  --radius:12px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1216; --surface:#171b21; --surface2:#1c2129;
+    --ink:#e9ecf1; --ink2:#c3cad6; --muted:#8d97a6;
+    --line:#282e38; --line2:#222831;
+    --navy:#8fb6e0; --navy2:#a7c8ec; --navyTint:#182430;
+    --amber:#e6a55c; --amberTint:#2a2115;
+    --teal:#5fc4b8; --tealTint:#122423;
+    --plum:#cf9ac6; --plumTint:#241a23;
+    --star:#e0b850;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1216; --surface:#171b21; --surface2:#1c2129;
+  --ink:#e9ecf1; --ink2:#c3cad6; --muted:#8d97a6;
+  --line:#282e38; --line2:#222831;
+  --navy:#8fb6e0; --navy2:#a7c8ec; --navyTint:#182430;
+  --amber:#e6a55c; --amberTint:#2a2115;
+  --teal:#5fc4b8; --tealTint:#122423;
+  --plum:#cf9ac6; --plumTint:#241a23;
+  --star:#e0b850;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;
+  font-size:15px; line-height:1.72; letter-spacing:-.01em;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb,var(--surface) 88%, transparent);
+  backdrop-filter:saturate(1.6) blur(12px);
+  -webkit-backdrop-filter:saturate(1.6) blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-in{max-width:1100px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px;height:56px}
+.brand{font-weight:800;font-size:13.5px;letter-spacing:-.02em;color:var(--navy);white-space:nowrap}
+.brand span{color:var(--muted);font-weight:600}
+.navscroll{flex:1;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.navscroll::-webkit-scrollbar{display:none}
+nav{display:flex;gap:2px;white-space:nowrap}
+nav a{
+  color:var(--muted);text-decoration:none;font-size:12.5px;font-weight:600;
+  padding:6px 10px;border-radius:7px;transition:.15s
+}
+nav a:hover{color:var(--ink);background:var(--line2)}
+nav a.on{color:var(--navy);background:var(--navyTint)}
+.tools{display:flex;gap:6px;flex-shrink:0}
+.tbtn{
+  font:inherit;font-size:12px;font-weight:700;cursor:pointer;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink2);
+  padding:6px 11px;border-radius:7px;transition:.15s;white-space:nowrap
+}
+.tbtn:hover{border-color:var(--navy);color:var(--navy)}
+.tbtn.active{background:var(--star);border-color:var(--star);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tbtn.active{color:#1a1500}}
+:root[data-theme="dark"] .tbtn.active{color:#1a1500}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;background:var(--navy);width:0}
+
+/* ---------- hero ---------- */
+header.hero{padding:44px 0 30px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:11.5px;font-weight:800;letter-spacing:.1em;color:var(--amber);text-transform:uppercase;margin-bottom:12px}
+h1{font-size:clamp(24px,4.4vw,36px);line-height:1.28;letter-spacing:-.035em;font-weight:800;margin-bottom:10px}
+.sub{font-size:15px;color:var(--muted);font-weight:500;margin-bottom:22px}
+.meta{display:flex;flex-wrap:wrap;gap:8px}
+.chip{
+  display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;
+  background:var(--surface);border:1px solid var(--line);color:var(--ink2);
+  padding:6px 12px;border-radius:20px
+}
+.chip b{color:var(--muted);font-weight:700}
+
+/* ---------- section ---------- */
+section{padding:38px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+.shead{display:flex;align-items:flex-start;gap:12px;cursor:pointer;user-select:none;margin-bottom:8px}
+.snum{
+  flex-shrink:0;width:28px;height:28px;border-radius:8px;background:var(--navy);color:var(--surface);
+  display:grid;place-items:center;font-size:12.5px;font-weight:800;margin-top:3px
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .snum{color:#0f1216}}
+:root[data-theme="dark"] .snum{color:#0f1216}
+h2{font-size:clamp(19px,2.8vw,25px);letter-spacing:-.03em;font-weight:800;line-height:1.35;flex:1}
+h2 small{display:block;font-size:13px;font-weight:600;color:var(--muted);letter-spacing:-.01em;margin-top:3px}
+.caret{flex-shrink:0;color:var(--muted);font-size:13px;margin-top:8px;transition:transform .2s}
+.shead.closed .caret{transform:rotate(-90deg)}
+.sbody{padding-top:14px}
+.sbody.hidden{display:none}
+
+h3{font-size:16px;font-weight:800;letter-spacing:-.02em;margin:30px 0 12px;padding-left:11px;border-left:3px solid var(--navy)}
+h3:first-child{margin-top:6px}
+h4{font-size:13.5px;font-weight:800;color:var(--ink2);margin:20px 0 8px;letter-spacing:-.01em}
+p{margin:9px 0;color:var(--ink2)}
+strong{font-weight:700;color:var(--ink)}
+.mark{background:var(--amberTint);color:var(--amber);font-weight:700;padding:1px 5px;border-radius:4px}
+
+/* ---------- cards ---------- */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:12px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(165px,1fr))}
+
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;text-align:center}
+.stat .n{font-size:26px;font-weight:800;letter-spacing:-.035em;color:var(--navy);line-height:1.15}
+.stat .n em{font-style:normal;font-size:15px;font-weight:700}
+.stat .l{font-size:12px;color:var(--muted);font-weight:600;margin-top:5px;line-height:1.4}
+
+/* star callout */
+.star{
+  background:linear-gradient(180deg,var(--amberTint),transparent 140%);
+  border:1px solid color-mix(in srgb,var(--amber) 28%, transparent);
+  border-left:3px solid var(--amber);
+  border-radius:10px;padding:14px 16px;margin:14px 0
+}
+.star .tag{display:inline-block;font-size:11px;font-weight:800;color:var(--amber);letter-spacing:.05em;margin-bottom:5px}
+.star p{margin:4px 0;color:var(--ink)}
+.star p:first-of-type{margin-top:0}
+
+.note{background:var(--surface2);border:1px dashed var(--line);border-radius:10px;padding:12px 15px;margin:12px 0;font-size:13.5px;color:var(--muted)}
+
+/* ---------- funnel ---------- */
+.funnel{display:flex;flex-direction:column;align-items:center;gap:5px;margin:18px 0 6px}
+.fstep{
+  width:100%;max-width:var(--w);background:var(--surface);border:1px solid var(--line);
+  border-radius:9px;padding:11px 16px;display:flex;align-items:center;gap:11px;
+  box-shadow:var(--shadow);transition:.18s
+}
+.fstep:hover{border-color:var(--navy);transform:translateY(-1px)}
+.fstep .i{
+  flex-shrink:0;width:22px;height:22px;border-radius:6px;background:var(--navyTint);color:var(--navy);
+  display:grid;place-items:center;font-size:11.5px;font-weight:800
+}
+.fstep .t{font-size:13.5px;font-weight:700;letter-spacing:-.02em;line-height:1.4}
+.fstep .t em{font-style:normal;display:block;font-size:11.5px;font-weight:600;color:var(--muted);margin-top:1px}
+.fstep.hit{border-color:var(--amber);background:var(--amberTint)}
+.fstep.hit .i{background:var(--amber);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .fstep.hit .i{color:#241a08}}
+:root[data-theme="dark"] .fstep.hit .i{color:#241a08}
+.farrow{color:var(--line);font-size:13px;line-height:1}
+
+/* ---------- table ---------- */
+.tw{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:520px}
+th,td{padding:11px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line2)}
+thead th{
+  background:var(--surface2);font-size:11.5px;font-weight:800;letter-spacing:.03em;
+  color:var(--muted);text-transform:uppercase;white-space:nowrap;border-bottom:1px solid var(--line)
+}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:var(--surface2)}
+td.k{font-weight:700;color:var(--ink);white-space:nowrap}
+tr.hl td{background:var(--amberTint)}
+tr.hl:hover td{background:var(--amberTint)}
+tr.hl td.k{color:var(--amber)}
+
+/* program table */
+.prog td.who{white-space:nowrap;font-weight:700;color:var(--navy)}
+.prog td.who em{display:block;font-style:normal;font-size:11.5px;font-weight:600;color:var(--muted)}
+.prog .badge{
+  display:inline-block;font-size:11px;font-weight:800;padding:3px 8px;border-radius:5px;white-space:nowrap
+}
+.b-key{background:var(--plumTint);color:var(--plum)}
+.b-topic{background:var(--navyTint);color:var(--navy)}
+.b-disc{background:var(--tealTint);color:var(--teal)}
+.b-all{background:var(--amberTint);color:var(--amber)}
+tr.ours td{background:var(--navyTint)}
+tr.ours:hover td{background:var(--navyTint)}
+
+/* ---------- lists ---------- */
+ul.clean{list-style:none;margin:10px 0}
+ul.clean li{position:relative;padding-left:17px;margin:6px 0;color:var(--ink2)}
+ul.clean li::before{content:"";position:absolute;left:3px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--navy);opacity:.5}
+ul.check li::before{content:"✓";position:absolute;left:0;top:0;width:auto;height:auto;background:none;color:var(--teal);font-weight:800;opacity:1;font-size:13px}
+ul.check li{padding-left:19px}
+
+.pills{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}
+.pill{
+  font-size:12.5px;font-weight:600;background:var(--surface);border:1px solid var(--line);
+  color:var(--ink2);padding:6px 12px;border-radius:8px
+}
+.pill.on{background:var(--tealTint);border-color:color-mix(in srgb,var(--teal) 32%,transparent);color:var(--teal);font-weight:700}
+
+/* ---------- scenario compare ---------- */
+.scen{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin:14px 0}
+.scol{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.scol h5{padding:13px 16px;font-size:13.5px;font-weight:800;letter-spacing:-.02em;border-bottom:1px solid var(--line)}
+.scol.a h5{background:var(--tealTint);color:var(--teal)}
+.scol.b h5{background:var(--plumTint);color:var(--plum)}
+.srow{padding:11px 16px;border-bottom:1px solid var(--line2);font-size:13px}
+.srow:last-child{border-bottom:0}
+.srow .lv{font-size:11px;font-weight:800;letter-spacing:.04em;color:var(--muted);text-transform:uppercase;margin-bottom:3px}
+.srow.key{background:var(--amberTint)}
+.srow.key .lv{color:var(--amber)}
+.srow.gone{opacity:.5}
+.srow em{font-style:normal;color:var(--amber);font-weight:700}
+
+/* ---------- agenda cards (최정학) ---------- */
+.agenda{display:grid;gap:11px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:14px 0}
+.ag{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:15px 17px;box-shadow:var(--shadow);position:relative;transition:.18s}
+.ag:hover{transform:translateY(-2px);border-color:var(--teal)}
+.ag .no{font-size:11px;font-weight:800;color:var(--teal);letter-spacing:.05em}
+.ag h5{font-size:15px;font-weight:800;letter-spacing:-.025em;margin:3px 0 7px}
+.ag p{font-size:12.5px;margin:4px 0;color:var(--muted);line-height:1.6}
+.ag.hot{border-color:color-mix(in srgb,var(--amber) 40%,transparent);background:linear-gradient(180deg,var(--amberTint),var(--surface) 70%)}
+.ag.hot .no{color:var(--amber)}
+
+/* ---------- value chain ---------- */
+.vc{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin:14px 0;background:var(--surface)}
+.vc-head{background:var(--surface2);padding:9px 14px;font-size:11.5px;font-weight:800;letter-spacing:.04em;color:var(--muted);border-bottom:1px solid var(--line)}
+.vc-sup{display:grid;gap:1px;background:var(--line2)}
+.vc-sup div{background:var(--surface);padding:9px 14px;font-size:12.5px;display:flex;gap:10px}
+.vc-sup b{color:var(--navy);font-weight:700;min-width:66px;flex-shrink:0}
+.vc-flow{display:flex;overflow-x:auto;gap:1px;background:var(--line2);border-top:1px solid var(--line)}
+.vc-flow div{background:var(--surface);padding:12px 10px;flex:1;min-width:96px;text-align:center}
+.vc-flow .s{font-size:12.5px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.vc-flow .d{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.5}
+.vc-flow div:last-child{background:var(--tealTint)}
+.vc-flow div:last-child .s{color:var(--teal)}
+
+/* ---------- proposals ---------- */
+.props{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin:14px 0}
+.prop{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--plum);border-radius:10px;padding:14px 16px}
+.prop .n{font-size:11px;font-weight:800;color:var(--plum);letter-spacing:.05em}
+.prop p{font-size:13px;margin:5px 0 0;color:var(--ink2);line-height:1.6}
+
+/* quote */
+blockquote{
+  border-left:3px solid var(--plum);background:var(--plumTint);
+  padding:13px 17px;border-radius:0 10px 10px 0;margin:14px 0;
+  font-size:14px;color:var(--ink);font-weight:600;line-height:1.68
+}
+blockquote cite{display:block;font-style:normal;font-size:12px;font-weight:600;color:var(--muted);margin-top:7px}
+
+/* ---------- questions ---------- */
+.q{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);margin:9px 0;overflow:hidden;box-shadow:var(--shadow)}
+.q-h{padding:14px 17px;display:flex;gap:12px;align-items:flex-start;cursor:pointer;user-select:none}
+.q-h:hover{background:var(--surface2)}
+.q-n{flex-shrink:0;font-size:11.5px;font-weight:800;color:var(--surface);background:var(--navy2);width:26px;height:26px;border-radius:7px;display:grid;place-items:center;margin-top:1px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .q-n{color:#0f1216}}
+:root[data-theme="dark"] .q-n{color:#0f1216}
+.q.top .q-n{background:var(--amber)}
+.q-t{flex:1;font-size:14px;font-weight:700;letter-spacing:-.02em;line-height:1.5}
+.q-t .flag{display:inline-block;font-size:10.5px;font-weight:800;color:var(--amber);background:var(--amberTint);padding:2px 7px;border-radius:5px;margin-left:6px;vertical-align:1px;white-space:nowrap}
+.q-c{color:var(--muted);font-size:12px;flex-shrink:0;margin-top:5px;transition:transform .2s}
+.q.open .q-c{transform:rotate(90deg)}
+.q-b{padding:0 17px 15px 55px;font-size:13.5px;display:none}
+.q.open .q-b{display:block}
+.q-b p{margin:6px 0}
+.q-b ul.clean li{font-size:13.5px}
+
+/* takeaway */
+.take{counter-reset:tk;display:grid;gap:10px;margin:14px 0}
+.tk{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:15px 18px 15px 52px;position:relative;box-shadow:var(--shadow)}
+.tk::before{
+  counter-increment:tk;content:counter(tk);
+  position:absolute;left:16px;top:15px;width:24px;height:24px;border-radius:7px;
+  background:var(--navy);color:var(--surface);display:grid;place-items:center;font-size:12px;font-weight:800
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tk::before{color:#0f1216}}
+:root[data-theme="dark"] .tk::before{color:#0f1216}
+.tk p{margin:0;font-size:13.5px;line-height:1.66}
+
+/* footer */
+footer{padding:34px 0 60px;color:var(--muted);font-size:12.5px}
+footer .fl{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:8px}
+
+/* focus mode */
+body.focus .detail{display:none!important}
+body.focus .fstep .t em{display:none}
+
+.hint{font-size:12px;color:var(--muted);margin-top:10px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.kbd{font-size:11px;font-weight:700;border:1px solid var(--line);background:var(--surface);padding:2px 6px;border-radius:4px;color:var(--ink2)}
+
+@media (max-width:640px){
+  body{font-size:14.5px}
+  .topbar-in{height:52px;gap:10px}
+  .brand{display:none}
+  .sbody{padding-top:10px}
+  .q-b{padding-left:17px}
+}
+@media print{
+  .topbar{display:none} .sbody.hidden{display:block!important} .q-b{display:block!important}
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-in">
+    <div class="brand">경기지역학 콜로키움 02 <span>· 09.01</span></div>
+    <div class="navscroll">
+      <nav id="nav">
+        <a href="#frame">이 논의의 틀</a>
+        <a href="#prog">프로그램</a>
+        <a href="#s1">발표 A</a>
+        <a href="#s2">발표 B</a>
+        <a href="#s3">지정토론</a>
+        <a href="#s4">심화 쟁점</a>
+        <a href="#s5">나온 제안</a>
+        <a href="#next">다음 회차</a>
+      </nav>
+    </div>
+    <div class="tools">
+      <button class="tbtn" id="focusBtn" title="★ 표시된 핵심만 남기고 상세를 접습니다">★ 핵심만</button>
+      <button class="tbtn" id="themeBtn" title="라이트/다크 전환">◐</button>
+    </div>
+    <div class="progress" id="prog-bar"></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">경기도문화원연합회 · 2026 경기지역학 네트워크 「지역학 길찾기 4+1」</div>
+  <h1>경기지역학 콜로키움 02 기록</h1>
+  <div class="sub">AI 시대 지역학의 전환, 지식에서 실천으로</div>
+  <div class="meta">
+    <span class="chip"><b>일시</b> 2026. 9. 1.(화) 14:00~17:00</span>
+    <span class="chip"><b>장소</b> 경기문화재단 9층 회의실</span>
+    <span class="chip"><b>주최</b> 경기도문화원연합회</span>
+    <span class="chip"><b>주관</b> 경기학회</span>
+    <span class="chip"><b>좌장</b> 박준범</span>
+  </div>
+  <div class="hint">
+    <span class="kbd">★ 핵심만</span> 을 누르면 상세가 접히고 요점만 남습니다 ·
+    제목을 누르면 섹션이 접힙니다
+  </div>
+
+  <div class="star" style="margin-top:16px">
+    <span class="tag">읽기 전에</span>
+    <p><strong>이 기록은 확정본이 아닙니다.</strong> 발표문·토론문과 당일 발언을 바탕으로 연합회가 정리한 것이며,
+    <strong>연합회와 경기학회가 쟁점과 합의를 확정하기 전 단계</strong>입니다.</p>
+    <p>급히 적은 것이라 <strong>틀린 데가 있을 수 있습니다. 아니라고 말씀해 주시면 그대로 고치겠습니다.</strong>
+    인용하실 문장은 자료집 원문에서 가져와 주십시오.</p>
+  </div>
+</header>
+
+<!-- ===== 이 논의의 틀 ===== -->
+<section id="frame">
+  <div class="shead" data-sec>
+    <div class="snum">▲</div>
+    <h2>이 논의의 틀<small>4+1 전체가 어디서 출발해 어디로 가는가</small></h2>
+    <div class="caret">▼</div>
+  </div>
+  <div class="sbody">
+
+    <div class="funnel">
+      <div class="fstep" style="--w:100%"><div class="i">?</div><div class="t">출발 질문<em>AI 시대, 시민들은 지역학에서 어떤 활동을 하고 있고, 할 수 있을까?</em></div></div>
+      <div class="farrow">▼</div>
+      <div class="fstep" style="--w:88%"><div class="i">1</div><div class="t">의제는 「시민지역학」<em>「시민지역학자」라는 명명은 아직 시기상조 — 이름이 앞서면 정작 찾아야 할 것이 가려진다</em></div></div>
+      <div class="farrow">▼</div>
+      <div class="fstep" style="--w:78%"><div class="i">2</div><div class="t">심화 쟁점을 모아간다<em>갈리는 지점을 짚는 것이 아니라 회차마다 이어서 쌓는다</em></div></div>
+      <div class="farrow">▼</div>
+      <div class="fstep hit" style="--w:68%"><div class="i">→</div><div class="t">도착점<em>시민이 지역학에서 제 역할을 하려면 어떤 생태계가 만들어져야 하는가</em></div></div>
+      <div class="farrow">▼</div>
+      <div class="fstep" style="--w:58%"><div class="i">9/29</div><div class="t">포럼<em>이 청사진이 나와야 기관별 역할을 논의하고 협의체를 출범할 수 있다</em></div></div>
+    </div>
+
+    <blockquote>
+      이번 「지역학 길찾기」에서 우리가 찾아가고 만들어가야 하는 길은 <strong>지역학에서 시민의 길을 찾는 것</strong>입니다.
+      공공기관에서 하는 지역학은 연구위원들이 또 치열하게 고민하고 연구할 것이기 때문입니다.
+      <cite>— 윤유석 (경기학회 회장)</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ===== 프로그램 ===== -->
+<section id="prog">
+  <div class="shead" data-sec>
+    <div class="snum">0</div>
+    <h2>프로그램<small>발표 2 · 토론자 3인 · 토론문 5편</small></h2>
+    <div class="caret">▼</div>
+  </div>
+  <div class="sbody">
+    <div class="tw">
+      <table class="prog">
+        <thead><tr><th>구분</th><th>주제</th><th>발표·토론자</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge b-topic">발표 A</span></td><td>시민 참여형 지역학의 실현 가능성과 실행 방안 구상</td><td class="who">윤유석<em>경기학회 회장</em></td></tr>
+          <tr><td><span class="badge b-topic">발표 B</span></td><td>지역주민의 기억을 활용한 지역문화유산의 기록과 검증 방법의 탐색<br><span class="detail">— 강원특별자치도 고성군 해안 바윗돌 조사의 AI 활용 설계를 중심으로</span></td><td class="who">구문모<em>동국대</em></td></tr>
+          <tr><td><span class="badge b-disc">지정토론</span></td><td>발표 A에 대하여</td><td class="who">김해규<em>평택인문연구소장</em></td></tr>
+          <tr><td><span class="badge b-disc">지정토론</span></td><td>발표 A·B 각각</td><td class="who">황수근<em>평택문화원 학예연구사</em></td></tr>
+          <tr><td><span class="badge b-disc">지정토론</span></td><td>발표 A·B 각각</td><td class="who">장상기<em>㈜지역다운레이블 대표</em></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="detail">지정토론과 상호토론이 이어지며 예정 시각을 넘겨 진행됐고, 마지막에 참석자 전원이 한마디씩 발언했습니다.</p>
+  </div>
+</section>
+
+<!-- ===== 발표 A ===== -->
+<section id="s1">
+  <div class="shead" data-sec>
+    <div class="snum">1</div>
+    <h2>발표 A — 시민 참여형 지역학의 실현 가능성과 실행 방안 구상<small>윤유석 · 경기학회 회장</small></h2>
+    <div class="caret">▼</div>
+  </div>
+  <div class="sbody">
+
+    <div class="star">
+      <span class="tag">★ 이 발표가 말하려 한 것</span>
+      <p><strong>시민과 전문가의 역할을 나누자는 제안이 아닙니다.</strong>
+      <em>“오히려 그 경계와 역할이 모호하거나 중첩되어 있다는 것입니다. 전문가의 역할은 무엇이고, 전문가가 있기는 한 걸까가 이번 발표에서 전하고자 했던 것입니다.”</em></p>
+      <p>따라서 축은 <strong>「시민과 전문가」가 아니라 「시민과 지역학」</strong>입니다.
+      시민이 지역학을 할 수 있는 <strong>플랫폼과 역할 규정</strong>을 시민과학과 지역학 가치사슬로 풀어 보려 한 발표입니다.</p>
+    </div>
+
+    <h3>출발점 — 정의가 아니라 질문에서 시작했다</h3>
+    <p>「지역학이란 무엇인가」를 차치하고 <strong>무엇을 하는가 · 왜 하는가 · 어떻게 하는가 · 누가 하는가</strong>를 물었습니다. 누가 하느냐에 따라 나머지가 전부 달라지기 때문입니다.</p>
+
+    <blockquote>
+      국내 지역학은 대학에 학과도 없고 학위자도 없다. 대학에 있는 지역학은 국제지역학이다.
+      <strong>그렇다면 지금 우리가 말하는 지역학은 문화정책에서 논의되는 지역학이 아닌가.</strong>
+      <cite>— 윤유석</cite>
+    </blockquote>
+
+    <h3>시민지역학의 정의</h3>
+    <p>시민이 자신이 살아가는 지역의 역사·문화·생활과 장소에 관한 자료를 <strong>발굴·기록·공유</strong>하고, 이를 지역의 공동 지식으로 축적하여 <strong>연구와 문화적 활용으로 연결</strong>하는 참여형 지역학 활동.</p>
+
+    <p class="detail">시민과학과 갈리는 지점은 <strong>표준화</strong>입니다. 시민과학은 표준화된 관찰이 가능하지만 지역의 기억은 같은 장소도 사람마다 다르게 기억합니다. 그래서 자료를 획일적으로 표준화하지 않고 <strong>출처·맥락·생산자의 관점을 함께 기록</strong>합니다. 이로써 사료 개념이 행정문서·고문헌·문화재에서 구술·개인 사진·상점 기록·지역 별칭·골목의 기억·생활도구까지 넓어집니다.</p>
+
+    <h3>가치사슬 6단계 — 순환한다</h3>
+    <p>이 가치사슬은 <strong>「시민은 어디까지 관여하는가」를 묻는 도구</strong>입니다. 단계마다 시민의 자리가 다르고, 그 차이를 보는 것이 논의의 실체입니다.</p>
+    <div class="funnel">
+      <div class="fstep" style="--w:100%"><div class="i">1</div><div class="t">발굴<em>시민 = 관찰자·발견자</em></div></div>
+      <div class="farrow">▼</div>
+      <div class="fstep" style="--w:94%"><div class="i">2</div><div class="t">수집·기록<em>시민 = 기록자·제보자</em></div></div>
+      <div class="farrow">▼</div>
+      <div class="fstep" style="--w:88%"><div class="i">3</div><div class="t">아카이빙<em>시민 = 자료 생산자·공유자</em></div></div>
+      <div class="farrow">▼</div>
+      <div class="fstep hit" style="--w:82%"><div class="i">4</div><div class="t">연구<em>시민 = 공동연구자 — 여기서 「어디까지」가 갈린다</em></div></div>
+      <div class="farrow">▼</div>
+      <div class="fstep" style="--w:76%"><div class="i">5</div><div class="t">기획·제작<em>시민 = 기획자·창작자</em></div></div>
+      <div class="farrow">▼</div>
+      <div class="fstep" style="--w:70%"><div class="i">6</div><div class="t">공유·활용 → 다시 발굴<em>종착점이 아니라 새 발굴의 출발점</em></div></div>
+    </div>
+
+    <h3>단계적 명명 <span class="detail">— 자격증이 아니라 단계적 인증</span></h3>
+    <div class="pills">
+      <span class="pill">시민관찰자 — 장소·생활·문화 관찰과 기록</span>
+      <span class="pill">시민기록자 — 사진·구술·문서 수집과 아카이빙</span>
+    </div>
+    <div class="note">
+      발표에는 세 번째 단계의 명칭도 함께 제시됐으나, 발표자는 <strong>그 명칭을 지금 논의하는 것은 시기상조</strong>라고 밝혔습니다.
+      명칭이 전면에 서면 정작 답을 찾아야 할 <strong>「시민지역학」</strong>이 가려지기 때문입니다.
+      시민의 위치와 명명 문제 자체는 계속 다룹니다.
+    </div>
+
+    <h3>거버넌스 — 각 기관이 가치사슬의 다른 단계에 참여한다</h3>
+    <div class="grid g3">
+      <div class="card"><strong>시민 · 지역문화원</strong><p class="detail" style="font-size:13px">현장 실행 — 발굴·수집</p></div>
+      <div class="card"><strong>경기도문화원연합회</strong><p class="detail" style="font-size:13px">교육과정과 활동 기준의 표준화</p></div>
+      <div class="card"><strong>대학 · 경기학회</strong><p class="detail" style="font-size:13px">조사방법론·연구교육</p></div>
+      <div class="card"><strong>경기연구원</strong><p class="detail" style="font-size:13px">정책연구</p></div>
+      <div class="card"><strong>경기문화재단</strong><p class="detail" style="font-size:13px">공모·연구지원, 전시·축제·교육 사업화, 단계별 지원체계</p></div>
+    </div>
+    <p class="detail">특정 기관이 주도하는 수직 구조가 아니라, 시민을 중심에 두고 각 기관이 서로 다른 단계에 참여하는 <strong>협력적·다층 거버넌스</strong>입니다. 다만 기관별 역할은 <strong>생태계 청사진이 나온 뒤에</strong> 확정하는 것으로 정리됐습니다.</p>
+
+    <h3>발표자가 열어 둔 질문</h3>
+    <ul class="clean">
+      <li><strong>개인은 왜 하는가</strong> — 즐거움·보람·공헌·고향 만들기·성취감·몰입으로 추정했으나 <em>“실증이 필요하다”</em></li>
+      <li><strong>지역학자가 안 보인다</strong> — 시민과학은 시민과 과학자의 역할이 분명한데, 여기서는 시민은 보이는데 지역학자가 안 보인다</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 발표 B ===== -->
+<section id="s2">
+  <div class="shead" data-sec>
+    <div class="snum">2</div>
+    <h2>발표 B — 지역주민의 기억을 활용한 지역문화유산의 기록과 검증<small>구문모 · 동국대 · 강원특별자치도 고성군 해안 바윗돌 조사</small></h2>
+    <div class="caret">▼</div>
+  </div>
+  <div class="sbody">
+
+    <div class="star">
+      <span class="tag">★ 이 발표의 성격</span>
+      <p><strong>AI를 문화유산의 의미를 판단하는 주체로 쓰지 않습니다.</strong> 전사·정리·분류·연결과 증언 비교·검증을 <strong>보조하는 도구</strong>로 실험합니다.
+      AI가 단독으로 제시한 설명은 독립적 근거가 없으면 채택하지 않습니다.</p>
+      <p><strong>AI의 우수성을 입증하는 연구가 아닙니다.</strong> “AI가 음성 전사에는 유용하지만 문화적 의미 해석에는 부적합하다”는 결과가 나와도 그것이 성과입니다.
+      <strong>연구 진행률 40%의 탐색적 연구</strong>임을 발표자가 먼저 밝혔습니다.</p>
+    </div>
+
+    <h3>검증 3등급</h3>
+    <div class="grid g3">
+      <div class="card"><strong>확인</strong><p class="detail" style="font-size:13px">독립 근거가 있는 것</p></div>
+      <div class="card"><strong>추정</strong><p class="detail" style="font-size:13px">근거가 부족한 것</p></div>
+      <div class="card"><strong>확인 불가</strong><p class="detail" style="font-size:13px">모른다는 것을 정직하게 남긴다</p></div>
+    </div>
+    <p>서로 다른 증언은 하나로 통합하지 않고 <strong>차이 자체를 자료로 보존</strong>합니다. 토론에서 이 3등급이 연구 도구를 넘어 <strong>활용 단계의 품질 기준</strong>으로 재해석됐습니다 — 「확인」은 공식 해설의 근거로, 「추정」은 전승되는 이야기로 구분하면 과장과 왜곡을 막는 안전장치이자 콘텐츠 신뢰의 기반이 된다는 것입니다.</p>
+
+    <div class="star">
+      <span class="tag">★ 열어 둔 것</span>
+      <p><em>“증언 두 사람이면 되는가, 세 사람이어야 하는가. 문헌까지 있어야 확인인가.”</em>
+      <strong>「확인」의 문턱을 누가 정하는가</strong>가 열린 채 남았습니다.</p>
+    </div>
+
+    <h3>현장은 이미 끝물이다</h3>
+    <blockquote>
+      고성은 어촌계장 외에 바윗돌을 기억하는 사람이 거의 없다. 노인정에 가도 모른다.
+      맥락이 없어질 것이라 거의 확신했다.
+      <cite>— 구문모</cite>
+    </blockquote>
+
+    <h3>토론에서 이어진 활용·자산화 이야기</h3>
+    <ul class="clean">
+      <li><strong>중국 묘족 사례</strong> — 문양 패턴을 AI로 수집·분류하고 오차 범위를 줄여 학습시킨 뒤, 젊은 층 취향을 질문해 시제품을 만듭니다. 옛것 기반 상품화가 거의 실패하던 과거와 달라졌습니다</li>
+      <li><strong>“분류가 안 된 자료도 자산화는 가능하다.”</strong> 정형화된 내용보다 야사 쪽 관심이 큽니다</li>
+      <li><strong>강릉 주문진 경매시장</strong> — 경매·건어물·횟집 시장을 전부 촬영해 정리했고, 수작업으로 남은 경매 방식이 가장 주목받았습니다. <em>“경매시장 경험이 있는 사람이 바로 지역학에서의 시민 아닐까”</em></li>
+      <li><strong>자산화된 가치를 지역주민에게 어떻게 돌릴 것인가</strong>가 남는 질문입니다</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 지정토론 ===== -->
+<section id="s3">
+  <div class="shead" data-sec>
+    <div class="snum">3</div>
+    <h2>지정토론<small>토론자별 묶음으로 진행 · 김해규 → 황수근 → 장상기</small></h2>
+    <div class="caret">▼</div>
+  </div>
+  <div class="sbody">
+
+    <h3>김해규 <span class="detail">— 평택인문연구소장</span></h3>
+    <ul class="clean">
+      <li>시민기록가는 외부 연구자가 오래 걸려 쌓는 라포가 이미 형성돼 있습니다. 시민을 수혜자에서 <strong>공동연구자</strong>로 세우려는 시도는 탁월합니다</li>
+      <li>다만 시민기록가를 「활용」한다는 표현은 적절하지 않습니다. <strong>협업·협력의 관계</strong>로 자리매김해야 합니다</li>
+      <li><strong>학의 요건</strong>은 사료의 분석·해석과 그에 기반한 객관적 서술입니다. 기록·수집·아카이브만으로는 그 범주에서 떨어져 있습니다</li>
+      <li><strong>지식착취</strong> — 구술자, 수집한 시민기록가, 논문을 쓰는 사람. 이 관계를 어떻게 설정할 것인가. <em>“먹이사슬이 아니라 공동 생산의 구조가 되었으면 한다”</em></li>
+      <li><strong>사료의 객관성</strong> — 언제·어디서·누구에게 들었는지 기초조사가 없으면 논문에 쓸 수 없고 사료 가치도 떨어집니다</li>
+    </ul>
+
+    <h3>황수근 <span class="detail">— 평택문화원 학예연구사</span></h3>
+    <ul class="clean">
+      <li>AI는 아직 부정확한 내용도 말합니다. <strong>AI가 한 검증을 재검증하는 역할</strong>이 지속적으로 필요합니다</li>
+      <li>다만 <strong>연구자가 자료를 직접 정리하는 과정에서 이루어지는 배움</strong>이 있습니다. 큰 흐름에서 버려지는 자료가 다른 관점에서는 큰 콘텐츠가 됩니다</li>
+      <li><strong>기관마다 시선이 다릅니다</strong> — 2024년 평택 토론회에서 문화원은 자료 수집·정리, 시기록관은 시민기록가 양성, 도서관은 기록으로 책 만들기에 무게를 둔다는 것이 확인됐습니다</li>
+      <li><strong>참여의 진입 단계</strong>를 어디에 둘 것인가 — 사전지식·조사윤리·기록방법을 어디까지 요구할 것인가</li>
+      <li><strong>명칭보다 중요한 것은 시민에게 어떤 역할과 권한을 주는가</strong>입니다</li>
+    </ul>
+
+    <h3>장상기 <span class="detail">— ㈜지역다운레이블 대표</span></h3>
+    <ul class="clean">
+      <li><strong>「시민」이 누구인가</strong> — 현장에서 만나는 시민은 매우 다양합니다. 러닝 크루도 게임 동호회도 시민입니다. <strong>이해관계가 복잡한 사람들이 참여할 구조가 먼저</strong>입니다</li>
+      <li><strong>테마별 지역학</strong> — 방대한 아카이빙이 아니라 그 지역 시민의 특성에 맞는 지역학이 여럿 나오는 것이 맞습니다. <em>“「바윗돌」이라는 테마를 보고 여기서부터 시작해도 재미있겠다고 생각했다”</em></li>
+      <li><strong>환류 설계</strong> — 교육과 사명감만으로는 2~3년을 넘기기 어렵습니다. 자신이 만든 것이 지역에서 쓰이는 것을 보고 성과의 일부가 돌아와야 지속됩니다. <strong>디지털 플랫폼 위에서만 환류하면 고령 세대가 처음부터 배제</strong>됩니다</li>
+      <li><strong>권리는 「남은 과제」가 아니라 입구의 전제</strong> — 시민이 자료를 등록하는 첫 화면에서 공개 범위와 활용 동의를 고르게 합니다</li>
+      <li><strong>비용 구조</strong>를 설계하지 못하면 탁상공론이 됩니다. 비용에 맞는 작은 형태의 아카이빙부터 만드는 것이 현실적입니다</li>
+      <li><strong>인증 자산</strong> — 사람보다 그 사람이 가진 <strong>기록</strong>이 중요합니다. 이탈리아 슬로푸드 「맛의 방주」는 말하는 사람보다 레시피를 등재합니다. <strong>누구든 될 수 있지만 아무나 인증받지는 못하는 것</strong>이 지역학을 경쟁력 있게 만듭니다</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 심화 쟁점 ===== -->
+<section id="s4">
+  <div class="shead" data-sec>
+    <div class="snum">4</div>
+    <h2>심화 토론 쟁점<small>갈린 자리가 아니라 다음 회차로 이어서 모아갈 질문</small></h2>
+    <div class="caret">▼</div>
+  </div>
+  <div class="sbody">
+
+    <div class="note">
+      쟁점을 「A냐 B냐」로 세우지 않고 <strong>어디까지·어떤 조건에서</strong> 형태로 적었습니다.
+      갈리는 지점을 짚는 것이 아니라 회차를 이어가며 답을 쌓기 위해서입니다.
+    </div>
+
+    <h3>① 시민은 지역학 가치사슬에서 어디까지 관여하고 참여하는가</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>발언자</th><th>요지</th></tr></thead>
+        <tbody>
+          <tr class="hl"><td class="k">윤유석</td><td>시민과 전문가를 나누자는 것이 아니다. <strong>그 경계와 역할이 모호하고 중첩되어 있다.</strong> 전문가의 역할은 무엇이고 전문가가 있기는 한가</td></tr>
+          <tr><td class="k">김해규</td><td>학의 요건은 <strong>사료의 분석·해석과 객관적 서술</strong>이다. 시민활동가·시민기록자·시민사료조사위원이라는 표현은 쓸 수 있다</td></tr>
+          <tr><td class="k">황수근</td><td>명칭보다 중요한 것은 시민에게 어떤 <strong>역할과 권한</strong>을 주느냐다</td></tr>
+          <tr><td class="k">장상기</td><td>사람보다 <strong>그 사람이 가진 기록</strong>이다. 누구든 될 수 있지만 <strong>아무나 인증받지는 못하는 것</strong>이 지역학을 경쟁력 있게 만든다</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>모아갈 방향</strong> — 가치사슬 여섯 단계마다 시민의 자리와 필요한 역량·권한을 적어 봅니다. <strong>단계별로 답이 다르다</strong>는 것이 이 쟁점의 실체입니다.</p>
+
+    <h3>② 기록의 권리와 환류를 어떻게 설계하는가</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>발언자</th><th>요지</th></tr></thead>
+        <tbody>
+          <tr><td class="k">김해규</td><td>지적재산권을 요구할 수 있는 사람이 결국 학자들뿐이었다. <strong>지적재산권은 과정에 있는 사람에게도 있다</strong></td></tr>
+          <tr><td class="k">장상기</td><td><strong>구술자료에 대한 윤리적 비용</strong>을 만들어야 한다. 사진 스톡 판매도 처음엔 말이 안 된다고 했지만 결국 비용을 내고 쓰게 됐다</td></tr>
+          <tr><td class="k">참석자</td><td>저작권과 윤리는 <strong>산업사회에서 만들어진 것</strong>이다. 유지하면 AI를 쓸 때 장애가 생기고, 버리면 지금까지 쌓아 온 체계가 무너진다</td></tr>
+          <tr><td class="k">장상기</td><td>권리와 환류를 먼저 설계하면 <strong>아카이빙 방식 자체가 경제적·효율적</strong>이 된다</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>모아갈 방향</strong> — 권리를 강화할 것인가 기준을 다시 세울 것인가로 가르지 않고, <strong>수집 단계에서 미리 정해 둘 최소 항목</strong>(공개 범위·활용 동의·출처 표기·비용 발생 조건)을 목록으로 만듭니다.</p>
+
+    <h3>③ AI에 무엇을 맡기고 무엇을 남기는가</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>발언자</th><th>요지</th></tr></thead>
+        <tbody>
+          <tr><td class="k">구문모</td><td>AI는 판단하지 않는다. <strong>확인·추정·확인 불가 세 등급</strong>을 남기고 서로 다른 증언은 통합하지 않는다</td></tr>
+          <tr><td class="k">황수근</td><td>자료를 직접 정리하는 과정이 <strong>심층적 이해를 형성하는 매개</strong>다. 그 과정을 넘기면 무엇이 남는가</td></tr>
+          <tr><td class="k">장상기</td><td>검증 등급이 <strong>활용 단계의 품질 기준</strong>이 된다 — 「확인」은 공식 해설, 「추정」은 전승되는 이야기</td></tr>
+          <tr><td class="k">구문모</td><td><strong>분류가 안 된 자료도 자산화는 가능하다.</strong> 활용 쪽은 이미 다른 나라가 앞서가 있다</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>모아갈 방향</strong> — <strong>「확인」의 문턱을 누가 어떤 기준으로 정하는가.</strong> 이 답이 나오면 시민기록 교육과정의 필수 항목도 함께 정해집니다.</p>
+
+    <h3>지역학을 왜 하는가 — 이날 나온 답</h3>
+    <ul class="clean">
+      <li><strong>구문모</strong> — 시민들은 학문을 생각하지 않습니다. <strong>즐길 수 있고 좋아하는 것</strong>을 원합니다. 지역 유적을 답사하는 것도 다 놀이입니다</li>
+      <li><strong>윤유석</strong> — <strong>지적인 유희</strong>입니다. 문화향유에 지역학 활동이 들어간다는 것을 실증·정량으로 증명해 <strong>정책 데이터로 쓰자</strong></li>
+      <li><strong>김해규</strong> — 지역학 개념이 등장한 것이 지방자치제 이후입니다. <strong>결국 예산의 문제</strong>입니다</li>
+      <li><strong>참석자</strong> — 향토사 → 지역사 → 이제 지역학. <strong>작은 구술 하나도 한국학의 영역입니다. 중앙이 꼽아주는 것이 아니라 지역이 모여서 한국학을 이룹니다</strong></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 나온 제안 ===== -->
+<section id="s5">
+  <div class="shead" data-sec>
+    <div class="snum">5</div>
+    <h2>이날 나온 제안<small>모두 제안 단계이며 확정된 것이 아닙니다</small></h2>
+    <div class="caret">▼</div>
+  </div>
+  <div class="sbody">
+
+    <div class="grid g2">
+      <div class="prop">
+        <div class="n">① 4개 단체 협의서 · 경기지역학 아카이브 <span style="font-weight:600;color:var(--muted)">— 경기문화재단 정책실장</span></div>
+        <p>담당자가 바뀌어도 지속되도록 <strong>네 기관의 원장·대표가 서명한 협의서</strong>를 만들자는 제안입니다. 그러면 재단의 유형·무형 자산을 서로 활용할 수 있습니다.</p>
+        <p>나아가 <strong>경기지역학 아카이브(인스티튜트) 설립을 도에 제안하자</strong>는 이야기가 나왔습니다. 카셀 도쿠멘타는 탄생 직후 아카이브를 설립했고 지금은 인스티튜트로 바뀌어 인재를 길러내고 있습니다. 포럼이 진행될수록 <strong>도에 제안할 아젠다</strong>를 만들어 가자는 제안입니다.</p>
+      </div>
+      <div class="prop">
+        <div class="n">② 연합회의 역할 <span style="font-weight:600;color:var(--muted)">— 최영주 경기도문화원연합회 사무처장</span></div>
+        <p><strong>경기도문화원연합회가 지역학 네트워크의 허브 역할을 하겠습니다. 다만 주도권을 주장하지 않습니다.</strong> 평등한 거버넌스와 지속가능성이 담보된 허브를 만들겠습니다.</p>
+        <p>각 기관·단체는 정기적으로 각자의 연구 성과를 공개하고 협의합니다. 지역학의 개념 정리는 한 번에 끝나지 않습니다. <strong>끝없는 협의는 하되 그것만 이야기하지는 않겠습니다.</strong></p>
+      </div>
+      <div class="prop">
+        <div class="n">③ 지역학 사전 · 유산 이익의 환원 <span style="font-weight:600;color:var(--amber)">— 개인 제안</span></div>
+        <p><strong>지역학 사전을 만들자</strong>는 제안이 나왔습니다. 사전이 나와야 학문이 어느 정도 정리되고, 계속 업데이트해야 네트워크가 자생 구조로 갈 수 있다는 것입니다. 유산에서 발생하는 이익이 시민에게 돌아가는 구조가 되어야 활용의 근거가 생긴다는 제안도 함께 나왔습니다.</p>
+        <p class="detail">이 두 가지는 <strong>개인 제안이며 기관 차원에서 합의된 것이 아닙니다.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 다음 회차 ===== -->
+<section id="next">
+  <div class="shead" data-sec>
+    <div class="snum">6</div>
+    <h2>다음 회차<small>지역학 길찾기 4+1</small></h2>
+    <div class="caret">▼</div>
+  </div>
+  <div class="sbody">
+    <div class="tw">
+      <table>
+        <thead><tr><th>회차</th><th>일시</th><th>주제</th></tr></thead>
+        <tbody>
+          <tr><td class="k">콜로키움 01</td><td>2026. 8. 28.(목)</td><td>인천·경기 공동 — 초광역 지역학 논의 <span class="detail">(종료)</span></td></tr>
+          <tr class="hl"><td class="k">콜로키움 02</td><td>2026. 9. 1.(화)</td><td>AI 시대 지역학의 전환, 지식에서 실천으로 <span class="detail">(이 기록)</span></td></tr>
+          <tr><td class="k">콜로키움 03</td><td>2026. 9. 8.(화)</td><td>문화원의 시민 참여 지역학 사례와 유형</td></tr>
+          <tr><td class="k">콜로키움 04</td><td>2026. 9. 15.(화)</td><td>경기·인천 공동 회차</td></tr>
+          <tr><td class="k">포럼</td><td>2026. 9. 29.(화)</td><td>기관별 역할 논의와 협의체 출범</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="star">
+      <span class="tag">진행 방식이 달라집니다</span>
+      <p>02에서 발표와 지정토론이 전체 시간의 60%를 넘었습니다. 실질적인 제안들이 대부분 뒤쪽 자유토론에서 나왔습니다.</p>
+      <p>03부터 <strong>발표 시간을 15분으로 줄이고, 참석하신 누구나 자유롭게 말을 얹을 수 있는 구간을 늘립니다.</strong>
+      함께 이야기하는 시간이 전체의 절반을 넘도록 구성합니다.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div><strong>기록</strong> 경기도문화원연합회 · 2026 경기지역학 네트워크 「지역학 길찾기 4+1」</div>
+  <div style="margin-top:6px"><strong>근거</strong> 자료집(발표문 2편 · 토론문 5편) 및 당일 발언</div>
+  <div style="margin-top:10px;font-size:12px">
+    ※ <strong>연합회·경기학회 확정 전 검토본입니다.</strong> 발언 요지는 정리 과정에서 뜻이 달라졌을 수 있습니다 —
+    사실과 다른 부분을 알려 주시면 그대로 고치겠습니다 · 인용하실 문장은 <strong>자료집 원문</strong>에서 가져와 주십시오
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  // ---- collapsible sections ----
+  document.querySelectorAll('[data-sec]').forEach(function(h){
+    h.addEventListener('click', function(){
+      var body = h.parentElement.querySelector('.sbody:last-of-type') || h.nextElementSibling;
+      // find the real body (last .sbody in section)
+      var bodies = h.parentElement.querySelectorAll(':scope > .sbody');
+      var b = bodies[bodies.length-1];
+      if(!b) return;
+      b.classList.toggle('hidden');
+      h.classList.toggle('closed');
+    });
+  });
+
+  // ---- questions accordion ----
+  document.querySelectorAll('.q-h').forEach(function(h){
+    h.addEventListener('click', function(){ h.parentElement.classList.toggle('open'); });
+  });
+
+  // ---- focus mode ----
+  var fb = document.getElementById('focusBtn');
+  try{
+    if(localStorage.getItem('colo-focus-pub')==='1'){ document.body.classList.add('focus'); fb.classList.add('active'); }
+  }catch(e){}
+  fb.addEventListener('click', function(){
+    var on = document.body.classList.toggle('focus');
+    fb.classList.toggle('active', on);
+    try{ localStorage.setItem('colo-focus-pub', on?'1':'0'); }catch(e){}
+  });
+
+  // ---- theme toggle ----
+  var tb = document.getElementById('themeBtn');
+  try{
+    var saved = localStorage.getItem('colo-theme-pub');
+    if(saved) document.documentElement.setAttribute('data-theme', saved);
+  }catch(e){}
+  tb.addEventListener('click', function(){
+    var cur = document.documentElement.getAttribute('data-theme');
+    var isDark;
+    if(cur){ isDark = cur==='dark'; }
+    else { isDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches; }
+    var next = isDark ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try{ localStorage.setItem('colo-theme-pub', next); }catch(e){}
+  });
+
+  // ---- scroll spy + progress ----
+  var secs = Array.prototype.slice.call(document.querySelectorAll('section[id]'));
+  var links = Array.prototype.slice.call(document.querySelectorAll('#nav a'));
+  var bar = document.getElementById('prog-bar');
+  function onScroll(){
+    var y = window.scrollY + 100;
+    var cur = secs[0];
+    secs.forEach(function(s){ if(s.offsetTop <= y) cur = s; });
+    links.forEach(function(a){
+      a.classList.toggle('on', a.getAttribute('href') === '#'+cur.id);
+    });
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = h>0 ? (window.scrollY/h*100)+'%' : '0%';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  onScroll();
+})();
+</script>
+</body>
+</html>
