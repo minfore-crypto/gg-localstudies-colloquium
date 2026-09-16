@@ -1,0 +1,983 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>경기지역학 콜로키움 04 기록</title>
+<style>
+:root{
+  --bg:#f4f6f9; --surface:#ffffff; --surface2:#fafbfd;
+  --ink:#151922; --ink2:#39414f; --muted:#6b7585;
+  --line:#e2e6ee; --line2:#eef1f6;
+  --navy:#1b3a5e; --navy2:#2d5786; --navyTint:#eaf0f7;
+  --amber:#a2570b; --amberTint:#fdf3e3;
+  --teal:#0f6b64; --tealTint:#e6f4f2;
+  --plum:#6b2d63; --plumTint:#f6ebf4;
+  --star:#b8860b;
+  --shadow:0 1px 2px rgba(20,30,50,.05), 0 8px 24px rgba(20,30,50,.06);
+  --radius:12px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0f1216; --surface:#171b21; --surface2:#1c2129;
+    --ink:#e9ecf1; --ink2:#c3cad6; --muted:#8d97a6;
+    --line:#282e38; --line2:#222831;
+    --navy:#8fb6e0; --navy2:#a7c8ec; --navyTint:#182430;
+    --amber:#e6a55c; --amberTint:#2a2115;
+    --teal:#5fc4b8; --tealTint:#122423;
+    --plum:#cf9ac6; --plumTint:#241a23;
+    --star:#e0b850;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1216; --surface:#171b21; --surface2:#1c2129;
+  --ink:#e9ecf1; --ink2:#c3cad6; --muted:#8d97a6;
+  --line:#282e38; --line2:#222831;
+  --navy:#8fb6e0; --navy2:#a7c8ec; --navyTint:#182430;
+  --amber:#e6a55c; --amberTint:#2a2115;
+  --teal:#5fc4b8; --tealTint:#122423;
+  --plum:#cf9ac6; --plumTint:#241a23;
+  --star:#e0b850;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.25);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:'Pretendard','Pretendard Variable',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif;
+  font-size:15px; line-height:1.72; letter-spacing:-.01em;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* ---------- top bar ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb,var(--surface) 88%, transparent);
+  backdrop-filter:saturate(1.6) blur(12px);
+  -webkit-backdrop-filter:saturate(1.6) blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-in{max-width:1100px;margin:0 auto;padding:0 20px;display:flex;align-items:center;gap:14px;height:56px}
+.brand{font-weight:800;font-size:13.5px;letter-spacing:-.02em;color:var(--navy);white-space:nowrap}
+.brand span{color:var(--muted);font-weight:600}
+.navscroll{flex:1;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.navscroll::-webkit-scrollbar{display:none}
+nav{display:flex;gap:2px;white-space:nowrap}
+nav a{
+  color:var(--muted);text-decoration:none;font-size:12.5px;font-weight:600;
+  padding:6px 10px;border-radius:7px;transition:.15s
+}
+nav a:hover{color:var(--ink);background:var(--line2)}
+nav a.on{color:var(--navy);background:var(--navyTint)}
+.tools{display:flex;gap:6px;flex-shrink:0}
+.tbtn{
+  font:inherit;font-size:12px;font-weight:700;cursor:pointer;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink2);
+  padding:6px 11px;border-radius:7px;transition:.15s;white-space:nowrap
+}
+.tbtn:hover{border-color:var(--navy);color:var(--navy)}
+.tbtn.active{background:var(--star);border-color:var(--star);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tbtn.active{color:#1a1500}}
+:root[data-theme="dark"] .tbtn.active{color:#1a1500}
+.progress{position:absolute;left:0;bottom:-1px;height:2px;background:var(--navy);width:0}
+
+/* ---------- hero ---------- */
+header.hero{padding:44px 0 30px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:11.5px;font-weight:800;letter-spacing:.1em;color:var(--amber);text-transform:uppercase;margin-bottom:12px}
+h1{font-size:clamp(24px,4.4vw,36px);line-height:1.28;letter-spacing:-.035em;font-weight:800;margin-bottom:10px}
+.sub{font-size:15px;color:var(--muted);font-weight:500;margin-bottom:22px}
+.meta{display:flex;flex-wrap:wrap;gap:8px}
+.chip{
+  display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;
+  background:var(--surface);border:1px solid var(--line);color:var(--ink2);
+  padding:6px 12px;border-radius:20px
+}
+.chip b{color:var(--muted);font-weight:700}
+
+/* ---------- section ---------- */
+section{padding:38px 0;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+.shead{display:flex;align-items:flex-start;gap:12px;cursor:pointer;user-select:none;margin-bottom:8px}
+.snum{
+  flex-shrink:0;width:28px;height:28px;border-radius:8px;background:var(--navy);color:var(--surface);
+  display:grid;place-items:center;font-size:12.5px;font-weight:800;margin-top:3px
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .snum{color:#0f1216}}
+:root[data-theme="dark"] .snum{color:#0f1216}
+h2{font-size:clamp(19px,2.8vw,25px);letter-spacing:-.03em;font-weight:800;line-height:1.35;flex:1}
+h2 small{display:block;font-size:13px;font-weight:600;color:var(--muted);letter-spacing:-.01em;margin-top:3px}
+.caret{flex-shrink:0;color:var(--muted);font-size:13px;margin-top:8px;transition:transform .2s}
+.shead.closed .caret{transform:rotate(-90deg)}
+.sbody{padding-top:14px}
+.sbody.hidden{display:none}
+
+h3{font-size:16px;font-weight:800;letter-spacing:-.02em;margin:30px 0 12px;padding-left:11px;border-left:3px solid var(--navy)}
+h3:first-child{margin-top:6px}
+h4{font-size:13.5px;font-weight:800;color:var(--ink2);margin:20px 0 8px;letter-spacing:-.01em}
+p{margin:9px 0;color:var(--ink2)}
+strong{font-weight:700;color:var(--ink)}
+.mark{background:var(--amberTint);color:var(--amber);font-weight:700;padding:1px 5px;border-radius:4px}
+
+/* ---------- cards ---------- */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow)}
+.grid{display:grid;gap:12px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(165px,1fr))}
+
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px;text-align:center}
+.stat .n{font-size:26px;font-weight:800;letter-spacing:-.035em;color:var(--navy);line-height:1.15}
+.stat .n em{font-style:normal;font-size:15px;font-weight:700}
+.stat .l{font-size:12px;color:var(--muted);font-weight:600;margin-top:5px;line-height:1.4}
+
+/* star callout */
+.star{
+  background:linear-gradient(180deg,var(--amberTint),transparent 140%);
+  border:1px solid color-mix(in srgb,var(--amber) 28%, transparent);
+  border-left:3px solid var(--amber);
+  border-radius:10px;padding:14px 16px;margin:14px 0
+}
+.star .tag{display:inline-block;font-size:11px;font-weight:800;color:var(--amber);letter-spacing:.05em;margin-bottom:5px}
+.star p{margin:4px 0;color:var(--ink)}
+.star p:first-of-type{margin-top:0}
+
+.note{background:var(--surface2);border:1px dashed var(--line);border-radius:10px;padding:12px 15px;margin:12px 0;font-size:13.5px;color:var(--muted)}
+
+/* ---------- funnel ---------- */
+.funnel{display:flex;flex-direction:column;align-items:center;gap:5px;margin:18px 0 6px}
+.fstep{
+  width:100%;max-width:var(--w);background:var(--surface);border:1px solid var(--line);
+  border-radius:9px;padding:11px 16px;display:flex;align-items:center;gap:11px;
+  box-shadow:var(--shadow);transition:.18s
+}
+.fstep:hover{border-color:var(--navy);transform:translateY(-1px)}
+.fstep .i{
+  flex-shrink:0;width:22px;height:22px;border-radius:6px;background:var(--navyTint);color:var(--navy);
+  display:grid;place-items:center;font-size:11.5px;font-weight:800
+}
+.fstep .t{font-size:13.5px;font-weight:700;letter-spacing:-.02em;line-height:1.4}
+.fstep .t em{font-style:normal;display:block;font-size:11.5px;font-weight:600;color:var(--muted);margin-top:1px}
+.fstep.hit{border-color:var(--amber);background:var(--amberTint)}
+.fstep.hit .i{background:var(--amber);color:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .fstep.hit .i{color:#241a08}}
+:root[data-theme="dark"] .fstep.hit .i{color:#241a08}
+.farrow{color:var(--line);font-size:13px;line-height:1}
+
+/* ---------- table ---------- */
+.tw{overflow-x:auto;margin:14px 0;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:520px}
+th,td{padding:11px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line2)}
+thead th{
+  background:var(--surface2);font-size:11.5px;font-weight:800;letter-spacing:.03em;
+  color:var(--muted);text-transform:uppercase;white-space:nowrap;border-bottom:1px solid var(--line)
+}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:var(--surface2)}
+td.k{font-weight:700;color:var(--ink);white-space:nowrap}
+tr.hl td{background:var(--amberTint)}
+tr.hl:hover td{background:var(--amberTint)}
+tr.hl td.k{color:var(--amber)}
+
+/* program table */
+.prog td.who{white-space:nowrap;font-weight:700;color:var(--navy)}
+.prog td.who em{display:block;font-style:normal;font-size:11.5px;font-weight:600;color:var(--muted)}
+.prog .badge{
+  display:inline-block;font-size:11px;font-weight:800;padding:3px 8px;border-radius:5px;white-space:nowrap
+}
+.b-key{background:var(--plumTint);color:var(--plum)}
+.b-topic{background:var(--navyTint);color:var(--navy)}
+.b-disc{background:var(--tealTint);color:var(--teal)}
+.b-all{background:var(--amberTint);color:var(--amber)}
+tr.ours td{background:var(--navyTint)}
+tr.ours:hover td{background:var(--navyTint)}
+
+/* ---------- lists ---------- */
+ul.clean{list-style:none;margin:10px 0}
+ul.clean li{position:relative;padding-left:17px;margin:6px 0;color:var(--ink2)}
+ul.clean li::before{content:"";position:absolute;left:3px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--navy);opacity:.5}
+ul.check li::before{content:"✓";position:absolute;left:0;top:0;width:auto;height:auto;background:none;color:var(--teal);font-weight:800;opacity:1;font-size:13px}
+ul.check li{padding-left:19px}
+
+.pills{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}
+.pill{
+  font-size:12.5px;font-weight:600;background:var(--surface);border:1px solid var(--line);
+  color:var(--ink2);padding:6px 12px;border-radius:8px
+}
+.pill.on{background:var(--tealTint);border-color:color-mix(in srgb,var(--teal) 32%,transparent);color:var(--teal);font-weight:700}
+
+/* ---------- scenario compare ---------- */
+.scen{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin:14px 0}
+.scol{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.scol h5{padding:13px 16px;font-size:13.5px;font-weight:800;letter-spacing:-.02em;border-bottom:1px solid var(--line)}
+.scol.a h5{background:var(--tealTint);color:var(--teal)}
+.scol.b h5{background:var(--plumTint);color:var(--plum)}
+.srow{padding:11px 16px;border-bottom:1px solid var(--line2);font-size:13px}
+.srow:last-child{border-bottom:0}
+.srow .lv{font-size:11px;font-weight:800;letter-spacing:.04em;color:var(--muted);text-transform:uppercase;margin-bottom:3px}
+.srow.key{background:var(--amberTint)}
+.srow.key .lv{color:var(--amber)}
+.srow.gone{opacity:.5}
+.srow em{font-style:normal;color:var(--amber);font-weight:700}
+
+/* ---------- agenda cards (최정학) ---------- */
+.agenda{display:grid;gap:11px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin:14px 0}
+.ag{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:15px 17px;box-shadow:var(--shadow);position:relative;transition:.18s}
+.ag:hover{transform:translateY(-2px);border-color:var(--teal)}
+.ag .no{font-size:11px;font-weight:800;color:var(--teal);letter-spacing:.05em}
+.ag h5{font-size:15px;font-weight:800;letter-spacing:-.025em;margin:3px 0 7px}
+.ag p{font-size:12.5px;margin:4px 0;color:var(--muted);line-height:1.6}
+.ag.hot{border-color:color-mix(in srgb,var(--amber) 40%,transparent);background:linear-gradient(180deg,var(--amberTint),var(--surface) 70%)}
+.ag.hot .no{color:var(--amber)}
+
+/* ---------- value chain ---------- */
+.vc{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin:14px 0;background:var(--surface)}
+.vc-head{background:var(--surface2);padding:9px 14px;font-size:11.5px;font-weight:800;letter-spacing:.04em;color:var(--muted);border-bottom:1px solid var(--line)}
+.vc-sup{display:grid;gap:1px;background:var(--line2)}
+.vc-sup div{background:var(--surface);padding:9px 14px;font-size:12.5px;display:flex;gap:10px}
+.vc-sup b{color:var(--navy);font-weight:700;min-width:66px;flex-shrink:0}
+.vc-flow{display:flex;overflow-x:auto;gap:1px;background:var(--line2);border-top:1px solid var(--line)}
+.vc-flow div{background:var(--surface);padding:12px 10px;flex:1;min-width:96px;text-align:center}
+.vc-flow .s{font-size:12.5px;font-weight:800;color:var(--ink);letter-spacing:-.02em}
+.vc-flow .d{font-size:11px;color:var(--muted);margin-top:3px;line-height:1.5}
+.vc-flow div:last-child{background:var(--tealTint)}
+.vc-flow div:last-child .s{color:var(--teal)}
+
+/* ---------- proposals ---------- */
+.props{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin:14px 0}
+.prop{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--plum);border-radius:10px;padding:14px 16px}
+.prop .n{font-size:11px;font-weight:800;color:var(--plum);letter-spacing:.05em}
+.prop p{font-size:13px;margin:5px 0 0;color:var(--ink2);line-height:1.6}
+
+/* quote */
+blockquote{
+  border-left:3px solid var(--plum);background:var(--plumTint);
+  padding:13px 17px;border-radius:0 10px 10px 0;margin:14px 0;
+  font-size:14px;color:var(--ink);font-weight:600;line-height:1.68
+}
+blockquote cite{display:block;font-style:normal;font-size:12px;font-weight:600;color:var(--muted);margin-top:7px}
+
+/* ---------- questions ---------- */
+.q{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);margin:9px 0;overflow:hidden;box-shadow:var(--shadow)}
+.q-h{padding:14px 17px;display:flex;gap:12px;align-items:flex-start;cursor:pointer;user-select:none}
+.q-h:hover{background:var(--surface2)}
+.q-n{flex-shrink:0;font-size:11.5px;font-weight:800;color:var(--surface);background:var(--navy2);width:26px;height:26px;border-radius:7px;display:grid;place-items:center;margin-top:1px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .q-n{color:#0f1216}}
+:root[data-theme="dark"] .q-n{color:#0f1216}
+.q.top .q-n{background:var(--amber)}
+.q-t{flex:1;font-size:14px;font-weight:700;letter-spacing:-.02em;line-height:1.5}
+.q-t .flag{display:inline-block;font-size:10.5px;font-weight:800;color:var(--amber);background:var(--amberTint);padding:2px 7px;border-radius:5px;margin-left:6px;vertical-align:1px;white-space:nowrap}
+.q-c{color:var(--muted);font-size:12px;flex-shrink:0;margin-top:5px;transition:transform .2s}
+.q.open .q-c{transform:rotate(90deg)}
+.q-b{padding:0 17px 15px 55px;font-size:13.5px;display:none}
+.q.open .q-b{display:block}
+.q-b p{margin:6px 0}
+.q-b ul.clean li{font-size:13.5px}
+
+/* takeaway */
+.take{counter-reset:tk;display:grid;gap:10px;margin:14px 0}
+.tk{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:15px 18px 15px 52px;position:relative;box-shadow:var(--shadow)}
+.tk::before{
+  counter-increment:tk;content:counter(tk);
+  position:absolute;left:16px;top:15px;width:24px;height:24px;border-radius:7px;
+  background:var(--navy);color:var(--surface);display:grid;place-items:center;font-size:12px;font-weight:800
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tk::before{color:#0f1216}}
+:root[data-theme="dark"] .tk::before{color:#0f1216}
+.tk p{margin:0;font-size:13.5px;line-height:1.66}
+
+/* footer */
+footer{padding:34px 0 60px;color:var(--muted);font-size:12.5px}
+footer .fl{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:8px}
+
+/* focus mode */
+body.focus .detail{display:none!important}
+body.focus .fstep .t em{display:none}
+
+.hint{font-size:12px;color:var(--muted);margin-top:10px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.kbd{font-size:11px;font-weight:700;border:1px solid var(--line);background:var(--surface);padding:2px 6px;border-radius:4px;color:var(--ink2)}
+
+@media (max-width:640px){
+  body{font-size:14.5px}
+  .topbar-in{height:52px;gap:10px}
+  .brand{display:none}
+  .sbody{padding-top:10px}
+  .q-b{padding-left:17px}
+}
+@media print{
+  .topbar{display:none} .sbody.hidden{display:block!important} .q-b{display:block!important}
+  body{background:#fff}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-in">
+    <div class="brand">경기지역학 콜로키움 04 <span>· 09.15</span></div>
+    <div class="navscroll">
+      <nav id="nav">
+        <a href="#frame">이 회차의 자리</a>
+        <a href="#prog">프로그램</a>
+        <a href="#s1">발표 1</a>
+        <a href="#s2">발표 2</a>
+        <a href="#s3">지정토론</a>
+        <a href="#s4">종합토론 쟁점</a>
+        <a href="#s5">나온 제안</a>
+        <a href="#next">다음 회차</a>
+      </nav>
+    </div>
+    <div class="tools">
+      <button class="tbtn" id="focusBtn" title="★ 표시된 핵심만 남기고 상세를 접습니다">★ 핵심만</button>
+      <button class="tbtn" id="themeBtn" title="라이트/다크 전환">◐</button>
+    </div>
+    <div class="progress" id="prog-bar"></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">경기도문화원연합회 · 2026 경기지역학 네트워크 「지역학 길찾기 4+1」</div>
+  <h1>경기지역학 콜로키움 04 기록</h1>
+  <div class="sub">지역문화원의 선순환과 경기지역학의 미래 — 경기 · 인천 공동 회차</div>
+  <div class="meta">
+    <span class="chip"><b>일시</b> 2026. 9. 15.(화) 14:00~17:00</span>
+    <span class="chip"><b>장소</b> 경기문화재단 9층 회의실</span>
+    <span class="chip"><b>주최</b> 경기도문화원연합회 · 경기학회 · 경기문화재단 · 경기연구원</span>
+    <span class="chip"><b>주관</b> 경기도문화원연합회 · 인천광역시문화원연합회</span>
+    <span class="chip"><b>발표</b> 박영재 · 최영화</span>
+    <span class="chip"><b>지정토론</b> 김진영 · 서정미 · 김병철 · 김성준 · 홍원의</span>
+    <span class="chip"><b>사회</b> 최영주</span>
+  </div>
+  <div class="hint">
+    <span class="kbd">★ 핵심만</span> 을 누르면 상세가 접히고 요점만 남습니다 ·
+    제목을 누르면 섹션이 접힙니다
+  </div>
+
+  <div class="star" style="margin-top:16px">
+    <span class="tag">🔒 공개하지 않습니다 — 2026-09-04 처장 지시</span>
+    <p><strong>AI 정리 기록은 내부 보관만 하고 외부에 공개하지 않습니다.</strong>
+    아카이브 실험은 내부에서 이어가되 <strong>연말 책 발간 시 내용 검수 참고자료로만</strong> 씁니다.</p>
+    <p>따라서 이 문서는 <strong>공개용 서식으로 만들었으나 공개하지 않는 내부 자료</strong>입니다.
+    발표문·토론문과 당일 발언을 바탕으로 연합회가 정리한 것이고 확정본이 아닙니다.
+    발언 요지는 정리 과정에서 뜻이 달라졌을 수 있으며, 인용할 문장은 자료집 원문에서 가져옵니다.</p>
+  </div>
+</header>
+
+<!-- ===== 이 회차의 자리 ===== -->
+<section id="frame">
+  <div class="shead" data-sec>
+    <div class="snum">▲</div>
+    <h2>이 회차의 자리<small>네 회차 만에 「지역학」이라는 말 자체가 쟁점이 된 자리</small></h2>
+    <div class="caret">▼</div>
+  </div>
+  <div class="sbody">
+    <p>01은 인천과 경기가 왜 같이 해야 하는지를, 02는 밖에서 본 진단을, 03은 문화원이 무엇에 걸려 있는지를 이야기했습니다.
+    04는 그 위에서 앞으로 무엇을 할지를 정하려던 자리였는데, <strong>정작 막힌 것은 「그 일을 무슨 이름으로 부를 것인가」</strong>였습니다.
+    그리고 그 막힘이 <strong>9월 29일 포럼의 대주제를 결정하는 자리</strong>가 되었습니다.</p>
+
+    <div class="funnel">
+      <div class="fstep" style="--w:100%"><div class="i">01</div><div class="t">8/28 — 인천·경기, 초광역 지역학 협력<em>5극 3특 · 제3차 계획 (안)</em></div></div>
+      <div class="farrow">▼</div>
+      <div class="fstep" style="--w:92%"><div class="i">02</div><div class="t">9/1 — 문화원은 자료를 만들지만 쓰지 못한다<em>외부의 진단</em></div></div>
+      <div class="farrow">▼</div>
+      <div class="fstep" style="--w:84%"><div class="i">03</div><div class="t">9/8 — 사례가 아니라 조건 이야기가 되었다<em>활동비 기준 · 업무기록 · 플랫폼</em></div></div>
+      <div class="farrow">▼</div>
+      <div class="fstep hit" style="--w:76%"><div class="i">04</div><div class="t">9/15 — 이름을 두고 세 시간, 그리고 할 일 여섯 줄<em>제3차 계획 확정본 발표 당일 · 경기·인천 공동</em></div></div>
+      <div class="farrow">▼</div>
+      <div class="fstep" style="--w:66%"><div class="i">포럼</div><div class="t">9/29 — 시민지역학과 지역문화 생태계<em>기관별 구상 발표 · 협의체</em></div></div>
+    </div>
+
+    <div class="star">
+      <span class="tag">★ 이 회차에서만 얻은 것</span>
+      <p><strong>제3차 지역문화진흥기본계획이 이날 오전 8시에 발표되었습니다.</strong>
+      01에서 「(안)」으로 소개되었던 문서가 이날 확정본이 되었고, 발표자가 그 확정본을 바탕으로 발표했습니다.
+      <span class="detail">우리 문서의 「(안)」 인용을 확정본으로 바꿀 근거가 이날 생겼습니다.</span></p>
+    </div>
+
+    <blockquote>
+      다들 하고 있는데, 하고 있는 줄 모른다. 이름부터 다시 붙일 때다.
+      <cite>— 이날 쟁점판의 관통 문장</cite>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ===== 프로그램 ===== -->
+<section id="prog">
+  <div class="shead" data-sec>
+    <div class="snum">0</div>
+    <h2>프로그램<small>발표 2 · 지정토론 5인 · 종합토론</small></h2>
+    <div class="caret">▼</div>
+  </div>
+  <div class="sbody">
+    <div class="tw">
+      <table class="prog">
+        <thead><tr><th>구분</th><th>주제</th><th>발표·토론자</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge b-topic">발표 1</span></td><td>지역문화원의 선순환과 경기지역학의 미래<br><span class="detail">— 지역 아카이브의 연결과 시민 주체 지역학을 위한 협력의 제안</span></td><td class="who">박영재<em>한발두발 대표</em></td></tr>
+          <tr><td><span class="badge b-topic">발표 2</span></td><td>지역학의 확장성을 위한 네트워크와 방법론<br><span class="detail">— 제3차 지역문화진흥기본계획(2026~2030)과 경기지역학의 과제</span></td><td class="who">최영화<em>인천연구원 선임연구위원</em></td></tr>
+          <tr><td><span class="badge b-disc">토론 1</span></td><td>두 발표 각각에 대한 논평문 (2편)</td><td class="who">김진영<em>한국외국어대학교</em></td></tr>
+          <tr><td><span class="badge b-disc">토론 2</span></td><td>지역의 기억, 시민의 삶으로 선순환하는 경기지역학을 위하여 외 1편</td><td class="who">서정미<em>총신대학교 겸임교수</em></td></tr>
+          <tr><td><span class="badge b-disc">토론 3</span></td><td>두 발표 각각에 대한 토론문 (2편)</td><td class="who">김병철<em>동두천시 학예연구사</em></td></tr>
+          <tr><td><span class="badge b-disc">토론 4</span></td><td>두 발표 각각에 대한 토론문 (2편)</td><td class="who">김성준<em>인천광역시문화원연합회 사무처장</em></td></tr>
+          <tr class="hl"><td><span class="badge b-disc">토론 5</span></td><td>두 발표를 묶은 토론문 <span class="detail">— 자료집 인쇄 뒤 접수되어 별첨으로 배포</span></td><td class="who">홍원의<em>안성시청 문화유산팀장</em></td></tr>
+          <tr class="ours"><td><span class="badge b-all">종합토론</span></td><td>발표·토론자와 참석자 전원 · 약 1시간</td><td class="who">사회 최영주<em>경기도문화원연합회 사무처장</em></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="detail">지정토론자가 한 분 늘어 다섯이 되면서 1인 발언 시간을 줄였습니다. 자료집은 본권 46쪽에
+    별첨 4쪽(47~50쪽)을 끼워 배포했습니다. 플로어에는 경기학회 회장, 역사콘텐츠 분야 연구자,
+    30년을 학교에 있었던 연구자, 한국문화원연합회 담당 팀장이 함께했습니다.</p>
+  </div>
+</section>
+
+<!-- ===== 발표 1 ===== -->
+<section id="s1">
+  <div class="shead" data-sec>
+    <div class="snum">1</div>
+    <h2>발표 1 — 지역문화원의 선순환과 경기지역학의 미래<small>박영재 · 한발두발 대표</small></h2>
+    <div class="caret">▼</div>
+  </div>
+  <div class="sbody">
+    <p>발표자는 미학과 미술사, 고고학을 거쳐 문화유산의 기록·보존·활용을 함께 해 온 이력을 먼저 밝혔습니다.
+    <span class="detail">지역학에는 문외한에 가까웠으나 막상 들여다보니 문화유산 현장에서 하던 일과 큰 차이가 없더라는 것이 발표의 출발점이었습니다.</span></p>
+
+    <h3>영암 할머니의 그릇 — 선순환이 무엇인지 보여 주는 한 장면</h3>
+    <p>쓰던 그릇을 집 주변에 묻어 두고 <strong>「나중에 필요하거든 꺼내 써라」</strong> 하고 떠나신 분이 있었습니다.
+    그것을 기억한 손녀가 박물관 학예사였습니다. 발굴을 했는데 그릇은 나오지 않았고,
+    몇 해 전 큰비에 드러난 것을 누군가 창고에 옮겨 둔 것이 뒤늦게 나왔습니다.
+    백자도 청자도 아닌, 백 년도 안 된 밀크글라스와 꽃무늬 그릇이 지금 전시장에 있습니다.</p>
+    <p class="detail">할머니가 버리지 않고 유예한 것, 그것을 끝까지 찾아 전시하는 과정 — 이것이 선순환 생태계의 본질과
+    거의 맞물린다는 것이 발표자가 이 이야기를 길게 꺼낸 이유였습니다.</p>
+
+    <h3>네 가지 제안</h3>
+    <div class="props">
+      <div class="prop"><div class="n">① 3R 선순환 모델</div><p><strong>기억 → 회복 → 재생.</strong> 무엇보다 먼저 <strong>인식의 전환</strong>이 있어야 합니다.
+        역사적 사건만이 아니라 개인의 오래된 사진, 골목길, 구술 생애사도 기록의 대상이라는 인식입니다.</p></div>
+      <div class="prop"><div class="n">② 광역으로의 연결 — 느슨한 결합</div><p>경기(도)메모리를 허브로 쓰되 <strong>소유권과 일차적 해석권은 지역에</strong> 둡니다.
+        기초 문화원에 <strong>1차 업데이트 권한</strong>을 주고 중간에서 형식만 점검한 뒤 올라가게 하자는 제안입니다.</p></div>
+      <div class="prop"><div class="n">③ 라키비움 — 공간이 아니라 기능</div><p>도서관·기록관·박물관을 한 건물에 넣는 것이 아니라
+        <strong>협력적 결합</strong>입니다. 각 기관이 잘하는 영역을 맡고, 미래세대 아카이브로 학교까지 들어갑니다.</p></div>
+      <div class="prop"><div class="n">④ 시민이 만드는 지역학</div><p>시민도 <strong>교육을 받아 시민기록자의 지위를 갖고</strong>,
+        전문가와 수평적으로 결합해 <strong>공동 연구자·공동 저자로 격상</strong>되어야 합니다. 데이터 주권과 AI 역할분담도 함께.</p></div>
+    </div>
+
+    <div class="star">
+      <span class="tag">★ 이날 가장 많이 인용된 비유 — 음식과 그릇</span>
+      <p>광역에서 음식 대회를 열며 31개 시군에 아무 제약 없이 만들라고 하면
+      <strong>31가지 음식뿐 아니라 31가지 그릇</strong>이 나옵니다.
+      <strong>「음식은 지역이 고르되, 그릇은 광역에서 어느 정도 제시안이 있어야 한다」</strong>는 것이
+      느슨한 결합의 실제 내용입니다. 표준 메타데이터라는 그릇이 먼저입니다.</p>
+      <p class="detail">종합토론에서 한 걸음 더 나갔습니다. <strong>한탄강</strong>이라는 주제로 그릇을 만들면
+      강원 철원과 경기 포천·연천이 한자리에 담기고, 같은 활용 사업이 여러 지역에서 동시에 가능해집니다.</p>
+    </div>
+
+    <h3>현장에서 확인한 것 — 갈등과 채록자</h3>
+    <p>도시화가 덜 된 지역일수록 원주민과 이주민의 갈등이 강한데,
+    <strong>정작 기록하고 채록하는 쪽은 이주민이 더 많다</strong>는 것을 현장에서 보았다고 했습니다.
+    정체성을 찾고 싶은 마음이 이주민 쪽에서 더 강했다는 것입니다.
+    그래서 아카이빙을 할 때 토박이의 이야기만이 아니라 <strong>이주한 사람들의 역사도 차별 없이 동등하게</strong> 담으면
+    갈등 관리도 함께 이루어질 수 있다는 제안이었습니다.</p>
+
+    <h3>종합토론에서 보탠 것 — 단기공모가 선순환의 적입니다</h3>
+    <blockquote>
+      1년짜리 공모사업 200만원, 300만원으로는 좋은 시나리오도 좋은 영화도 안 나옵니다.
+      그러면 관광객이 돈 주고 보지 않고, 결국 지역 몇 명 모아놓고 공연하고 실적 내는 일이 반복됩니다.
+      제가 봤을 때 <strong>단기공모사업이 선순환의 제일 큰 적</strong>입니다.
+      <cite>— 박영재 (종합토론)</cite>
+    </blockquote>
+    <ul class="clean">
+      <li>조례로 <strong>상시 인력과 지속 예산</strong>을 박아 두고 10년·20년·30년을 두고 볼 연구로 가야 한다</li>
+      <li>거시적인 역사·문화·어원은 <strong>이제 AI에 물어보면 되는 시대</strong>다. 그 바깥에서 시민과 구성원이 할 수 있는 일을 찾는 것이 AI 시대 지역학의 기초다</li>
+      <li>문화원의 자생은 불가능하다. <strong>아카이빙한 것을 정부가 사야 한다.</strong> 경제와 이어지지 않으면 아카이빙도 1년마다 이름만 바뀐다</li>
+      <li>동의서를 받아도 못 쓰는 경우가 있다 — 부모가 동의해도 자식이 막는다. 그런 자료는 <strong>다크 아카이브로 공개하지 않고 모아만 두자</strong></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== 발표 2 ===== -->
+<section id="s2">
+  <div class="shead" data-sec>
+    <div class="snum">2</div>
+    <h2>발표 2 — 지역학의 확장성을 위한 네트워크와 방법론<small>최영화 · 인천연구원 선임연구위원</small></h2>
+    <div class="caret">▼</div>
+  </div>
+  <div class="sbody">
+    <div class="note">발표자는 <strong>이날 오전 8시 문체부가 발표한 제3차 지역문화진흥기본계획</strong>을 바탕으로 발표했습니다.
+    계획 파일은 콜로키움 단톡방에 공유되었습니다.</div>
+
+    <h3>Ⅰ. 국가계획은 지역학을 어떻게 다루고 있는가</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>항목</th><th>제3차 계획(2026~2030)에 들어간 것</th></tr></thead>
+        <tbody>
+          <tr class="hl"><td class="k">지방문화원의 자리</td><td>지역 고유의 역사·문화·생활자료를 수집·보존·관리하는 <strong>지역학 거점기관</strong>으로 명시. 조건은 <strong>거버넌스 체계 구축 + 매뉴얼 제작</strong></td></tr>
+          <tr><td class="k">사람</td><td>시군구 <strong>지역문화 PD</strong> · 읍면동 <strong>문화이장</strong> 양성. 이번엔 <strong>표준산업분류·적정 대가 가이드라인·경력 인증</strong>까지 들어갔다</td></tr>
+          <tr><td class="k">데이터</td><td>지역문화 데이터 <strong>공통 표준</strong> 마련 · 읍면동 생활권 조사 기반 <strong>문화기반 지도</strong> 구축</td></tr>
+          <tr><td class="k">네트워크</td><td>초광역 문화협의체 구성 · 권역별 문화거점 연계 강화</td></tr>
+          <tr><td class="k">세부 과제</td><td>지역어 보존 · 소멸위험 마을문화 자산화 · <strong>접경지역 평화문화 자산화</strong>(인천·경기에 직접 걸린다)</td></tr>
+          <tr class="hl"><td class="k">점검 주기</td><td><strong>5년에 한 번 → 매년 성과 점검</strong>으로 바뀌었다</td></tr>
+          <tr><td class="k">설명회</td><td><strong>11월 3일 경기도청</strong> — 경기·인천권 설명회. 문체부가 전국을 돌며 연다</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="star">
+      <span class="tag">★ 우리가 쥘 수 있는 손잡이</span>
+      <p><strong>경기도는 올해 12월까지 시행계획을 문체부에 제출하고, 연도별 추진 실적을 매년 올려야 합니다.</strong>
+      그러면 지역학을 방치할 수 없고, 경기도가 어느 정도 지원했고 어떤 성과를 냈는지를 매번 증빙해야 합니다.
+      <strong>경기도가 주관을 하든 지역학 관련 예산을 만들든 역할을 해 주어야 이것이 가능한 구조가 된다</strong>는 것이 발표자의 지적이었습니다.</p>
+      <p class="detail">별도로, 한국문화원연합회가 <strong>제2차 지방문화원 육성 기본계획</strong>을 수립 중이며 내년 발표 예정입니다.
+      올해 전국 투어 토론회를 돌고 있으니 지금이 의견을 넣을 시기입니다.</p>
+    </div>
+
+    <h3>Ⅱ. 지역학을 가로막는 네 가지 단절</h3>
+    <div class="grid g4">
+      <div class="card"><strong>생산–활용</strong><p style="font-size:12.5px;color:var(--muted)">어르신을 찾아다니며 녹취하고 기록하는데 <strong>자료집에서 끝난다</strong>. 재사용 가능한 데이터 단위로 분해되지 않아 다른 기관이 가져다 쓰기 어렵다</p></div>
+      <div class="card"><strong>기관 간</strong><p style="font-size:12.5px;color:var(--muted)">문화재단·박물관·도서관·학교가 <strong>유사 중복 조사</strong>를 한다. 예산이 중복되고 자료가 분산되며 통합검색이 안 된다</p></div>
+      <div class="card"><strong>주체</strong><p style="font-size:12.5px;color:var(--muted)">조사는 연구자가 하고 <strong>주민은 구술자로 대상에 머문다</strong>. 라포가 가장 좋은 사람은 주민인데</p></div>
+      <div class="card"><strong>권리·표준</strong><p style="font-size:12.5px;color:var(--muted)">구술 동의·저작권·개인정보 처리의 공통 표준이 없어 <strong>기껏 녹취해 놓고 못 쓰는 자료</strong>가 된다</p></div>
+    </div>
+    <div class="grid g3" style="margin-top:12px">
+      <div class="stat"><div class="n">전국 <em>12위</em></div><div class="l">경기도 100만 명당 문화시설 수<br>총량은 많고 밀집도·연결도는 약하다</div></div>
+      <div class="stat"><div class="n">4~5곳</div><div class="l">권역별 거점문화원<br>동·남·서 + 접경권</div></div>
+      <div class="stat"><div class="n">5~10명</div><div class="l">읍면동 생활문화 지역학 모임<br>문화이장 중심의 모세혈관</div></div>
+    </div>
+
+    <h3>Ⅲ. 네트워크 3층 구조와 순환 5단계</h3>
+    <div class="vc">
+      <div class="vc-head">허브 — 경기지역학 플랫폼협의체 (경기도 · 경기도문화원연합회 · 경기문화재단 · 경기학회 · 경기연구원)</div>
+      <div class="vc-sup">
+        <div><b>권역</b> 권역별 거점문화원 4~5곳 — 공동 조사주제 · 공동 아카이빙 · 장비와 인력 공유</div>
+        <div><b>기초</b> 읍면동 생활문화 지역학 모임 5~10명 — 문화이장을 주축으로 시민기록자가 동네를 조사</div>
+      </div>
+      <div class="vc-flow">
+        <div><div class="s">① 수집 설계</div><div class="d">안 했으니 하자가 아니라<br>활용을 염두에 둔 기획</div></div>
+        <div><div class="s">② 표준 기록화</div><div class="d">메타데이터 표준<br>동의서·권리 처리</div></div>
+        <div><div class="s">③ 개방</div><div class="d">쪼개진 단위로<br>검색 가능하게</div></div>
+        <div><div class="s">④ 재가공</div><div class="d">교육용·해설용<br>전시·상품</div></div>
+        <div><div class="s">⑤ 환류</div><div class="d">활용 실적이<br>다시 사업으로</div></div>
+      </div>
+    </div>
+
+    <div class="star">
+      <span class="tag">★ 예산 없이 지금 당장 할 수 있는 것</span>
+      <p><strong>데이터 표준과 동의서 양식을 만들어 31개 문화원이 함께 교육받고 협약하는 일</strong>입니다.
+      앞으로 기록화 작업이나 지역학 연구를 할 때는 이 표준에 맞춘다고 협약하는 것 — 돈이 들지 않습니다.</p>
+    </div>
+
+    <h3>협력할 수 있는 곳 — 학교만이 아닙니다</h3>
+    <div class="pills">
+      <span class="pill on">보건복지 (요양·장애인·아동 돌봄)</span>
+      <span class="pill">관광·상권</span>
+      <span class="pill">로컬 비즈니스</span>
+      <span class="pill">기록정보</span>
+      <span class="pill">기술·AI</span>
+      <span class="pill">행정·정책</span>
+      <span class="pill">학교·교육청</span>
+    </div>
+    <blockquote>
+      제3차 계획에 「크리에이티브 커뮤니티 케어」 — 창조적 문화 돌봄이라는 말이 있습니다.
+      어르신들의 생애 구술이 지역 콘텐츠가 되어 복지기관을 통해 사회복지사와 의료 전문 인력 교육으로 갈 수 있습니다.
+      <strong>문화 쪽 예산은 부족한데 복지 쪽 예산은 줄어들지 않습니다.</strong>
+      <cite>— 최영화 (발표)</cite>
+    </blockquote>
+
+    <h3>성과 지표와 로드맵</h3>
+    <p>특성화 사업이 끝나면 <strong>책 한 권 나오고 회원들에게 나눠주고 끝나는</strong> 구조를,
+    데이터 건수와 <strong>실제 활용 건수</strong>(학교 교육자료로 쓰인 횟수, 관광해설사 교육자료로 쓰인 사례)로
+    바꾸자는 제안입니다. 그래야 문화원이 기록에서 끝나지 않고 활용까지 관점을 전환한다는 것입니다.</p>
+    <div class="funnel">
+      <div class="fstep" style="--w:100%"><div class="i">26~27</div><div class="t">기반 — 협의체 발족 · 메타데이터·동의서 표준 공유 · 거점문화원 지정<em>큰돈이 들지 않는 단계</em></div></div>
+      <div class="farrow">▼</div>
+      <div class="fstep" style="--w:88%"><div class="i">28</div><div class="t">시범 — 교육·복지 분야 협력사업 우선 착수 · 다년도 정책협약<em>비즈니스 모델보다 접근이 쉽다</em></div></div>
+      <div class="farrow">▼</div>
+      <div class="fstep" style="--w:76%"><div class="i">29~30</div><div class="t">성과 — 통합검색·개방형 아카이브 활성화 · 번역과 활용 공급<em>실질적 성과를 보여 주는 단계</em></div></div>
+      <div class="farrow">▼</div>
+      <div class="fstep" style="--w:64%"><div class="i">31~</div><div class="t">제4차 지역문화진흥 시행계획에 지역학과 문화원의 위상 강화<em>다음 단계를 계획에 넣을 수 있을 만큼</em></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 지정토론 ===== -->
+<section id="s3">
+  <div class="shead" data-sec>
+    <div class="snum">3</div>
+    <h2>지정토론<small>다섯 분이 질문하고 발표자가 묶어서 답하는 방식</small></h2>
+    <div class="caret">▼</div>
+  </div>
+  <div class="sbody">
+
+    <h3>김진영 <span class="detail">— 한국외국어대학교</span></h3>
+    <ul class="clean">
+      <li><strong>행정협력의 정례화를 구체적으로 어떻게 하는가.</strong> 문화원·도서관·박물관·교육청·지자체는 소관 부처도 예산 주기도 다르다. 상설협의체인가, 비상근인가, 조례부터인가</li>
+      <li><strong>학습자원화</strong> — 아카이빙으로 수동적 플랫폼만 제공할 것인가, 문화원이 프로그램과 프로젝트까지 적극 제공할 것인가</li>
+      <li><strong>시민기록자에게 분류체계를 제공하자.</strong> 연구재단 지원 신청처럼 대·중·소분류를 눌러 들어가듯, 「나는 무엇을 할 수 있는 사람인가」를 스스로 알 수 있게</li>
+      <li><strong>활용 5건을 어떻게 셀 것인가.</strong> 건수로만 하면 아주 간단한 걸 해 놓고 다 채웠다고 하게 된다. 단계나 분류체계를 상세화해야 수준 낮은 자료의 범람을 막는다</li>
+      <li>수익이 난다면 <strong>귀속은 어떻게</strong> 할 것인가. 시민에게도 금전으로든 명예로든 환류가 있어야 하지 않나</li>
+      <li>거점문화원을 두면 <strong>작은 지자체는 평생 주변부에 머물지 않겠는가</strong> <span class="detail">(본인이 여주 거주)</span></li>
+    </ul>
+    <div class="star">
+      <span class="tag">답변 — 박영재</span>
+      <p>MOU나 당사자 간 협력은 단기로 끝난다. <strong>「가칭 경기지역학 및 라키비움 활성화 지원 조례」</strong> 같은
+      강력한 제도 기반이 있어야 상설협의체·지속예산·인력배치가 가능하다.
+      그 인력 안에 <strong>시민을 교육할 상설 코디네이터</strong>가 들어가야 한다 — 채록에도 기술과 방법이 있기 때문이다.</p>
+      <p>학습자원화는 이미 길이 있다. <strong>2022 지역연계 교육과정</strong>으로 지역 교과서 수정이 가능하고,
+      학교 선생님들이 TF를 꾸려 직접 만들기도 한다. <strong>그 TF에 자료를 대거나 함께 꾸리면</strong> 지금 제도와 바로 접목된다.</p>
+      <p>분류체계는 결국 <strong>광역 표준 메타데이터</strong>다. 「경기지역 표준 메타데이터 가이드라인」을
+      경기도가 먼저 잘 만들어 두면 다른 도가 따라올 수 있다.</p>
+    </div>
+
+    <h3>서정미 <span class="detail">— 총신대학교 겸임교수</span></h3>
+    <ul class="clean">
+      <li>두 발표 모두 결국 <strong>사람 이야기</strong>다. 연구자도 주최자도 아닌, 그곳에 사는 사람. 그 주민이 어떻게 참여할 수 있는가</li>
+      <li><strong>문화PD의 역할이 무엇인가.</strong> 매개자, 문화 코디네이터, 해설사 — 이름만 바뀌고 실제 활용되는 시민은 같다</li>
+      <li>경기도메모리를 들어가 봤다. 정리는 잘 되어 있는데 <strong>연구하거나 보고서 쓰는 사람만 들어갈 것 같다.</strong> 일반인이 들어가게 하려면 어떻게 해야 하나</li>
+      <li>주민이 능동적으로 참여한 <strong>선례가 있는가.</strong> 현장에서는 「아무리 능동적으로 이야기해도 결론은 다 정해져 있더라」는 말을 듣는다</li>
+    </ul>
+    <div class="star">
+      <span class="tag">답변 — 박영재 · 최영화</span>
+      <p><strong>선례</strong> — 고양신문 「동네 사람들, 동네 시장을 기록하다」, 안산 단원FM 라디오 방송, 인천 미추홀 시민아카이브.
+      큰 사업만이 아니라 <strong>전곡선사박물관이 상설전시장 앞 로비를 지역에 개방해</strong> 마을 사람들의 그림과 삶의 이야기를
+      전시하는 것처럼 소소한 활용도 이미 진행되고 있다. <span class="detail">(박영재)</span></p>
+      <p><strong>문화PD·문화이장</strong> — 이름만 바뀌는 측면이 있다는 점은 인정한다. 다만 이 모델은 중앙이 아니라
+      <strong>완주·김해·춘천·달성 같은 기초에서 먼저 생겨</strong> 성과가 확인된 것을 전국 모델로 가져온 것이다.
+      이번 계획에는 <strong>표준산업분류·적정 대가 산정 가이드라인·경력 인증</strong>까지 들어가 있다.
+      기존에는 양성하고 매칭하는 데서 끝났는데 이번엔 활동을 체계화하고 보장하는 내용까지 있다. <span class="detail">(최영화)</span></p>
+    </div>
+
+    <h3>김병철 <span class="detail">— 동두천시 학예연구사</span></h3>
+    <p>작년에 이어 두 번째 참석입니다. 현장의 말로 가장 구체적인 어려움을 이야기했습니다.</p>
+    <ul class="clean">
+      <li><strong>조례를 먼저 말씀하시는데, 예산이 없으면 조례도 만들지 말라고 한다.</strong> 무형유산 보유자와 그 아래 사람들의 활동비 제도를 만들려 했더니 「예산 없다, 이걸 왜 만드냐」는 답이 돌아왔다. 명예직으로 돌리면 「나중에 돈 달라고 하면 어떡하냐」고 한다</li>
+      <li><strong>동의서를 받아도 번복된다.</strong> 처음엔 좋게 허락했다가 수익이 생기거나 이익이 걸리면 번복한다. 위에서는 「그럴 거면 아예 하지도 말라」고 한다</li>
+      <li><strong>계획서는 좋은데 현실을 안 본다.</strong> 문화계획 의견을 내라는 공문이 올 때마다 무기력하다. 행정직이 받아 내용도 모른 채 넘기고, 나중에 평가할 때쯤이면 담당자가 사라져 있다</li>
+      <li><strong>평가에 페널티도 인센티브도 없으니 꼼수로 건수만 채운다.</strong> 경기도는 남북 격차가 크고 북부 안에서도 서부와 동부의 차이가 있다. 이 격차를 어떻게 해소하나</li>
+    </ul>
+    <div class="star">
+      <span class="tag">답변 — 최영화</span>
+      <p>계획이 현장에서 도는가라는 의심은 계획을 만들 때부터 나왔다. 2차 계획의 내용을 아는 사람이 거의 없었고,
+      5년에 한 번 자의적으로 추진률을 매기는 식이었다. 그래서 <strong>매년 관리하겠다</strong>는 것으로 바뀌었고,
+      계획을 만들고 보도자료만 뿌리던 관행에서 처음으로 <strong>11월 3일 경기도청에서 경기·인천권 설명회</strong>를 연다.</p>
+    </div>
+
+    <h3>김성준 <span class="detail">— 인천광역시문화원연합회 사무처장</span></h3>
+    <ul class="clean">
+      <li>3R을 현장에 붙이려면 <strong>조직·인력·재정 중 무엇부터</strong> 보완해야 하는가</li>
+      <li>문화원이 수집자를 넘어 <strong>해석자·의제 형성자</strong>가 되려면 내부 전문성과 대학·광역 협력은 각각 무엇인가</li>
+      <li>AI 시대에 문화원이 자료의 수집·관리·활용·해석에서 <strong>어느 수준까지 주도</strong>해야 적절한가</li>
+      <li>협의체는 <strong>만드는 것보다 지속시키는 것이 더 어렵다.</strong> 누가 의제를 정하고 기초문화원과 주민 의견은 어떤 방식으로 반영되는가</li>
+      <li>표준화가 과하면 <strong>그 지역만의 고유한 이야기가 약해진다.</strong> 최소 공통기준은 어디까지인가</li>
+      <li>활용 건수만이 아니라 <strong>주민 참여가 얼마나 지속되었는지, 다음 세대로 얼마나 전달되는지</strong> 같은 질적 변화를 함께 봐야 한다</li>
+    </ul>
+    <p class="detail">인천에는 10개 문화원이 있고, 인천문화재단의 요청으로 시민기록가 양성을 잘하고 있는 한 문화원이
+    지역 거점 시범사업을 맡고 있습니다. <strong>기반형 · 성장형 · 선도형</strong>으로 나누어 선도형의 사례를
+    다른 문화원이 벤치마킹하고 교육을 받으러 가는 방식이 좋은 사례가 될 수 있다는 제안이었습니다.</p>
+    <div class="star">
+      <span class="tag">답변 — 최영화 · 거점의 최소 조건은 없다</span>
+      <p>권역 거점문화원이 운영 가능한 최소 인력과 예산 조건은 <strong>따로 없다.</strong>
+      올해 대한민국 문화원상 심사에서 <strong>종합경영 대통령상을 받은 진해문화원은 인력이 3명</strong>이다.
+      자원이 부족해도 지역의 온갖 기관과 최대한 협력하면서 사업 영역을 넓혀 왔다.</p>
+      <p><strong>충남 예산문화원</strong>은 문체부 장관상을 받았는데, 복지부·국토부 사업과도 연계하고
+      지역에 영화관이 없어 작은영화관을 직접 운영하며 그 수익을 사업으로 환류한다.
+      대부분의 보조금 기관은 수익을 지자체로 환수하는데 <strong>예산군과 협의해 문화원이 그대로 쓰기로</strong> 했다.
+      <span class="detail">충남역사문화연구원이 백제사·내포문화사 같은 학술 연구를 맡고, 예산문화원은 생활사를 맡는 역할 분담 구조도 함께 작동한다.
+      극장 때문에 상을 받은 것이 아니라 이런 것들이 종합평가된 것이다.</span></p>
+      <p>거점은 <strong>돈과 인력이 많은 곳이 아니라 지역학 노하우가 쌓인 곳</strong>이 맡아야 하고,
+      서로 이해도가 쌓이면 <strong>거점 구조로 끝까지 갈 필요는 없다.</strong></p>
+    </div>
+
+    <h3>홍원의 <span class="detail">— 안성시청 문화유산팀장 · 자료집 인쇄 뒤 접수되어 별첨</span></h3>
+    <p>이미 나온 이야기와 겹치는 부분은 건너뛰고 <strong>지방문화원의 정체성</strong> 하나만 짚겠다며 시작했습니다.</p>
+    <blockquote>
+      지방문화원의 역할이 과연 무엇입니까. 학술기관입니까, 행사를 하는 기관입니까, 교육을 하는 기관입니까.
+      지방문화원진흥법을 보면 개발·보존·활용, 발굴·수집·조사·연구, 행사 개최, 컨설팅, 문화예술교육, 다문화,
+      위탁사업까지 다 적혀 있는데 <strong>법이 애매해서 구체적으로 무엇을 하라는 것인지 와닿지 않습니다.</strong>
+      <cite>— 홍원의 (토론 5)</cite>
+    </blockquote>
+    <ul class="clean">
+      <li>진흥법에 기본계획을 5년마다 수립하게 되어 있는데 <strong>지금까지 무엇을 했는지 알 수가 없다</strong></li>
+      <li><strong>법이나 시행령 별표에 인력과 예산의 표준화</strong>가 필요하다. 어느 문화원은 예산이 넉넉하고 어느 곳은 활동이 미미한 상태로 가면 안 된다</li>
+      <li>🔴 <strong>안성문화원은 국가나 도의 예산이 하나도 없다.</strong> 카톡으로 방금 물어봤는데 아예 없다고 한다. <strong>100% 지자체 지원에 매달리게 되어 있다</strong></li>
+      <li>영화 상영으로 우수상을 받는 것은 문제가 있다고 본다. 문화원에는 문화원의 역할이 있는데, 법이 미흡하니 다른 사업으로 평가를 받게 된다. <span class="detail">저작권 없이 DVD를 상영하는 곳도 있다</span></li>
+      <li>연합회와 명예직에 계신 분들이 문광부에 건의해 <strong>법을 손보고, 지자체·국가 지원금을 표준화</strong>해야 한다</li>
+    </ul>
+    <p class="detail">본인이 별첨으로 제출한 토론문에서는 「최소 공통표준을 어디까지 통일하고 지역 자율은 어디까지 보장하는가」,
+    「시민이 만든 자료의 정확성을 누가 검증하고 맥락을 붙이는가」, 「31개 문화원의 격차에서 가장 먼저 제도화할 한 가지는 무엇인가」
+    세 가지를 물었습니다. <strong>기억은 소중한 역사자료이지만 기억 자체가 곧 역사적 사실은 아니다</strong>라는 것이 그 질문의 배경입니다.</p>
+  </div>
+</section>
+
+<!-- ===== 종합토론 쟁점 ===== -->
+<section id="s4">
+  <div class="shead" data-sec>
+    <div class="snum">4</div>
+    <h2>종합토론 쟁점<small>이름 이야기에서 시작해 할 일 여섯 줄로 끝났습니다</small></h2>
+    <div class="caret">▼</div>
+  </div>
+  <div class="sbody">
+    <div class="note">쟁점은 「A냐 B냐」로 결론을 내지 않았습니다. 어디까지, 어떤 조건에서 가능한지를 포럼으로 이어 가기 위해 적었습니다.</div>
+
+    <h3>① 🔴 시민지역학이라는 말을 쓸 것인가 — 포럼 대주제가 걸렸습니다</h3>
+    <p>경기학회 회장이 자리에서 직접 밝혔습니다. <strong>9월 마지막 포럼 전에 오늘 어느 정도 합의가 되어야
+    포럼에서 공표할 수 있다</strong>는 것입니다. 포럼 대주제는 <strong>「AI 시대 지역학은 누가 만드는가」</strong>로 잡혀 있습니다.</p>
+    <blockquote>
+      지역학은 지역의 자료를 체계적으로 조사·분석해야 하고, 그것을 할 수 있는 사람은 상당 기간 연구를 하고
+      그 일을 업으로 삼는 사람입니다. 시민은 말 그대로 생활인입니다.
+      <strong>시민이 지역학의 주역이 된다는 이 말 자체가 문법이 성립하는가.</strong>
+      <cite>— 참석 연구자 (종합토론)</cite>
+    </blockquote>
+    <p>다만 여기서 멈추지 않았습니다. 전통시대의 학문은 선현의 말씀을 해석하는 것이었고,
+    산업사회의 학문은 자료를 모아 분석하는 것이어서 학자와 시민이 갈렸습니다.
+    그런데 디지털이 그 구분을 흔들었습니다. <strong>조선왕조실록이 열리면서 사료가 시민에게 개방</strong>되었고,
+    이제 AI가 지식을 만드는 체계 자체로 들어왔습니다.
+    <strong>「시민들이 일정한 훈련을 하면 연구도 가능해진다」</strong>는 것이 이어진 말이었습니다.
+    그래서 개념을 넓혀 <strong>「지역지식」</strong>으로 가자는 제안이 나왔습니다.</p>
+
+    <div class="scen">
+      <div class="scol a"><h5>이름을 바꾸거나 넓히자</h5>
+        <div class="srow"><div class="lv">참석 연구자</div>지금 개념으로는 시민지역학이 성립하지 않는다. 다만 <strong>재정의하면 된다.</strong> 지금은 모든 것을 새로 만드는 시대다. <em>경기도가 정리해 주면 의미 있는 콜로키움과 포럼이 된다</em></div>
+        <div class="srow"><div class="lv">김진영</div>동학을 Eastern Learning, 실학을 Practical Learning으로 옮겼듯 <strong>learning</strong>은 어떤가. 배운다·연구한다·안다가 모두 들어 있다 — <strong>「지역러닝」</strong></div>
+        <div class="srow"><div class="lv">서정미</div><strong>메타포</strong>로 보자. 노인대학도 시민대학도 정확한 말이 아니지만 우리는 그렇게 쓴다. 「시민」 안에 학자도 연구자도 다 들어가 있다</div>
+      </div>
+      <div class="scol b"><h5>그대로 쓰되 우리가 정의하자</h5>
+        <div class="srow"><div class="lv">김성준</div>지역학은 <strong>우리가 만든 용어</strong>다. AI 시대에 역설적으로 주체적으로 가지고 가면 좋겠다. 굳이 버릴 필요는 없다. <em>지역학이라는 이름으로 가고, 거버넌스와 매뉴얼을 주체적으로 논의하자</em></div>
+        <div class="srow"><div class="lv">최영화</div><strong>2018년 한국문화관광연구원 보고서</strong>(「지역 쇠퇴에 대응한 지역학의 역할과 문화 정책적 접근」)에 이미 정책용어로 나온다. 그 보고서에도 <strong>「이걸 제일 잘하는 데가 지방문화원」</strong>이라고 적혀 있다. 아카데믹한 용어가 아니라 정책사업의 일환으로 채택된 용어다</div>
+        <div class="srow key"><div class="lv">경기학회 회장</div>지역학은 학문적 담론으로 정의하는 것과 별개로 <strong>정책사업으로 뜬 용어</strong>다. 학(學)을 science가 아니라 <strong>study</strong>로 읽자 — 지역을 공부하는 동아리에서 시작해 조사를 해 보고 복지관과 무언가를 해 보는 데까지. <strong>시민지역학은 문화원의 지역학을 구별 짓는 전략적 용어</strong>다</div>
+        <div class="srow gone"><div class="lv">경기학회 회장 (유보)</div>다만 아직 지역학의 정의도 문화원 차원에서 안 되어 있으니 <strong>이번 포럼에서는 「시민」 자를 빼는 게 맞지 않을까</strong></div>
+      </div>
+    </div>
+
+    <div class="star">
+      <span class="tag">★ 가치사슬 — 어디까지를 지역학으로 볼 것인가</span>
+      <p>경기학회 회장의 정리입니다. 지역의 기초 자료를 <strong>발굴·조사</strong>하고 → <strong>아카이빙</strong>하고 →
+      <strong>연구</strong>하고 → <strong>전시·공연·콘텐츠</strong>로 만들고 → 그것이 <strong>지역문화</strong>가 됩니다.
+      기존에는 현장 조사와 시민기록만 지역학으로 보았는데, <strong>문화원은 A부터 Z까지 다 하고 있습니다.</strong>
+      그렇다면 이 전체 과정을 지역학 사업이라 부를 것인가, 그리고 그 사업 주체는 문화원·문화재단·경기연구원·민간연구소라는 것입니다.</p>
+      <p class="detail">처장 제안 — <strong>개념·학술 체계·정의는 앞으로 경기학회가 논의를 가져가고, 그 개념을 우리는 따르기로 결의</strong>하는 방식은 어떤가.</p>
+    </div>
+
+    <h3>② 협의체 — 만드는 것보다 굴리는 것</h3>
+    <p>최영화 선임연구위원이 제안한 플랫폼협의체에 대해 김성준 사무처장이 <strong>「만드는 것보다 지속시키는 것이 훨씬 어렵다」</strong>고
+    짚었고, 박영재 대표가 <strong>「MOU는 단기다. 조례로 묶어야 한다」</strong>고 답했습니다.
+    처장은 3년을 이 구조를 만들려 했는데 아직 못 만들었다고 했습니다.</p>
+    <div class="tw">
+      <table>
+        <thead><tr><th>기관</th><th>이날 나온 역할</th></tr></thead>
+        <tbody>
+          <tr class="hl"><td class="k">경기도</td><td>시행계획 수립과 성과관리. <strong>12월 제출 의무가 실행력을 담보</strong>한다</td></tr>
+          <tr><td class="k">경기도문화원연합회</td><td>31개 시군 현장 문화원과의 연계 주도</td></tr>
+          <tr><td class="k">경기연구원</td><td>지역학을 지역사회의 정책사업으로 자리매김시키는 정책 연구</td></tr>
+          <tr><td class="k">경기학회</td><td>담론과 개념 정리</td></tr>
+          <tr><td class="k">경기문화재단</td><td>문화예술인·창작자 쪽 끝단, 콘텐츠화</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="star">
+      <span class="tag">★ 한국문화원연합회 담당 팀장의 정리 — 문화원이 다 할 수는 없다</span>
+      <p><strong>문화원이 말초신경처럼 지역의 기록과 시민의 기억을 모아내면</strong>, 전문 학자는 연구해 학문으로 만들고,
+      지역 창작자는 연극과 콘텐츠로 만들고, 도서관은 대출과 열람을 맡습니다.
+      문화원이 그동안 발굴한 자료는 많은데 대출·열람이 쉽지 않으니 도서관에 위탁하면 됩니다.
+      <strong>문화원이 다 전문가가 되겠다는 선언이 아니라 나눠야 한다</strong>는 것입니다.</p>
+      <p>🔴 동시에 한계도 분명히 밝혔습니다. <strong>기본계획은 중앙에서 세우는데 예산 지원과 인센티브는 지자체 몫</strong>이라
+      문체부도 강제할 수 없습니다. 시드머니를 주고 장려하는 것이 어려운 구조여서, 지역에서는
+      「중앙에서 하라니까」 기존 사업을 믹스해 「우리 했어」로 해석하는 경우가 많다는 것입니다.</p>
+      <p class="detail">연합회 내부에서도 지역학사업의 정의가 내려지지 않은 채 흘러가고 있다고 했습니다.
+      어떤 곳은 한국문화연구소를 지역학연구소로 이름만 바꾸었는데 지자체가 요구하는 수준은 전문 연구 수준이라 갭이 생긴다는 것입니다.</p>
+    </div>
+
+    <h3>③ 🔴 경기도 메모리가 붕 떠 있습니다</h3>
+    <blockquote>
+      경기도 메모리를 만든 지 10년이 넘었는데 <strong>재단에서도 못 받고 경기도서관도 안 받아 지금 붕 떠 있습니다.</strong>
+      업데이트도 안 됩니다, 저작권이 있으니까. 낙동강 오리알처럼 되어 있습니다.
+      <cite>— 최영주 (종합토론)</cite>
+    </blockquote>
+    <ul class="clean">
+      <li>처장은 <strong>「AI에 검색이 안 되는 지역 문화」</strong>라는 표현을 썼습니다. 방대한 자료가 아직 AI에서 자유로운 상태인데, 긍정적인 면도 부정적인 면도 있다는 것입니다</li>
+      <li><strong>서정미</strong> — 정리는 잘 되어 있는데 일반인이 들어갈 일이 없다. 넣는 게 아니라 <strong>끄집어내는 작업</strong>이 필요하다</li>
+      <li><strong>박영재</strong> — 기초 문화원에 1차 업데이트 권한을 주고 중간에서 형식만 점검하자. 그리고 아카이빙이 극대화되려면 <strong>결국 지역경제 활성화와 연결</strong>되어야 한다</li>
+      <li><strong>표기 정정</strong> — 경기메모리가 아니라 <strong>「경기도 메모리」</strong>입니다 <span class="detail">(경기학회 회장 현장 정정)</span></li>
+    </ul>
+    <p class="detail">03(9/8)에서 이미 제기된 건이 이날 <strong>소관 부재</strong>로 확인되었습니다. 9/29 포럼 협의체 안건 1순위입니다.</p>
+
+    <h3>④ 학교 — 이날 가장 구체적이었던 한 대목</h3>
+    <p>30년을 학교에 있었던 참석 연구자의 발언입니다. 네 회차를 통틀어 <strong>학교 쪽에서 나온 유일한 실무 진단</strong>이었습니다.</p>
+    <blockquote>
+      지역에 계신 분들이 학교를 너무 모르세요. 학교가 어떤 원리로 작동하는지 모르시니까
+      선생님들한테 보급하면 되지 않느냐, 교과서를 개설하면 되지 않느냐고 하십니다.
+      <strong>학교는 기본적으로 지역에 관심이 없습니다.</strong>
+      다만 <strong>교육과정이라는 것이 학교가 움직이는 굉장히 큰 틀인데, 이 틀만 이해하면 얼마든지 가능합니다.</strong>
+      <cite>— 참석 연구자 (종합토론)</cite>
+    </blockquote>
+    <ul class="clean">
+      <li>경기문화재단에서 「경기도 역사유산」 3권(인물·문화유산·사건)을 내 <strong>해마다 1~2만 권</strong>이 학교로 갔다</li>
+      <li>지자체와 교육청이 연계하는 미래교육 사업이 있고, 교육청·지자체·시민단체·활동가가 모이는 플랫폼도 있다</li>
+      <li>다만 <strong>학교가 요구하는 것이 너무 많다</strong> — 강사 자격, 성교육 이수 여부 등. 들어가려는 분들이 문턱을 많이 느낀다</li>
+      <li>🔴 <strong>「지금 이 자리에 학교나 교육청에서 오신 분이 없습니다.」</strong></li>
+    </ul>
+    <p class="detail">처장 보탬 — 경기도교육청 예산은 연간 15조입니다. <strong>「우리가 해야 할 역할도 사석으로 생각하면 안 되겠다」</strong>는 것이 이날의 문제의식이었습니다.</p>
+
+    <h3>⑤ 돈 — 복지에서 오나, 시장에서 오나</h3>
+    <div class="grid g2">
+      <div class="card"><strong>복지 쪽</strong><p style="font-size:13px">문화 예산은 줄어도 <strong>복지 예산은 줄지 않습니다.</strong>
+        생애사 아카이브를 복지기관과 함께하고, 사회복지사·의료 인력 교육으로 내보내는 길입니다.
+        <strong>교육과 복지가 가장 접근하기 쉬운 분야</strong>라는 것이 발표자의 판단이었습니다. <span class="detail">— 최영화</span></p></div>
+      <div class="card"><strong>시장 쪽</strong><p style="font-size:13px">강화의 청년들은 지역의 이야기 자원으로 <strong>로컬 관광 루트</strong>를 만들어 팝니다.
+        도시재생 마을기업이 전국 어디나 두부와 과일청을 만드는 것과 다릅니다.
+        예산문화원처럼 <strong>수익을 지자체로 환수하지 않고 문화원이 재투자</strong>하는 구조도 있습니다. <span class="detail">— 최영화</span></p></div>
+    </div>
+    <p class="detail">처장은 이렇게 덧붙였습니다. 지난 회차에서 비즈니스 모델을 이야기한 분은
+    지역을 연구하고 그것으로 상품을 만들고 그 수익이 다시 연구로 재투자되는 일에 <strong>34억</strong>을 쓰고 있는데,
+    <strong>우리는 3천만원</strong>으로 이 자리를 하고 있다는 것입니다.</p>
+
+    <h3>⑥ 합의가 없는 것이 문제입니다</h3>
+    <blockquote>
+      우리나라는 항상 기본을 안 하고 뭔가를 합니다. 문화원도 마찬가지입니다.
+      인천도 다 하고 있는데 <strong>본인들이 지역학인지 모릅니다.</strong> 이게 현실입니다.
+      그런데 <strong>합의할 수 있는 구조가 없습니다.</strong>
+      <cite>— 김성준 (종합토론)</cite>
+    </blockquote>
+    <p>한국문화원연합회가 제2차 기본계획을 권역별로 진행하면서도 지역학을 의제로 논의하는 자리는 없었다며,
+    <strong>한문연이 권역별 합의 구조를 만들어 달라</strong>는 요청이 나왔습니다.
+    처장은 <strong>「그래서 경기도는 이렇게 만들려고 3년째 하고 있는데 아직 안 만들어졌다」</strong>고 답했습니다.</p>
+    <p class="detail">학계가 문화원과 거리를 두려 한다는 지적도 나왔고, 앞으로는 상생해야 한다는 데 이견이 없었습니다.
+    문화원의 어려움 — 체계적 연구, 정리, 의미 부여, 역사적 맥락의 정합성 — 을 도와줄 창구가 지금까지 없었다는 것이
+    처장이 말한 이 자리의 존재 이유였습니다.</p>
+  </div>
+</section>
+
+<!-- ===== 나온 제안 ===== -->
+<section id="s5">
+  <div class="shead" data-sec>
+    <div class="snum">5</div>
+    <h2>이날 나온 제안<small>모두 제안 단계이며 확정된 것이 아닙니다</small></h2>
+    <div class="caret">▼</div>
+  </div>
+  <div class="sbody">
+    <div class="props">
+      <div class="prop"><div class="n">① 경기지역학 플랫폼협의체 <span style="font-weight:600;color:var(--muted)">— 최영화</span></div><p>경기도·경기도문화원연합회·경기문화재단·경기학회·경기연구원이 참여하는 허브를 두고, 권역 거점문화원과 읍면동 모임을 3층으로 잇자는 제안입니다.</p></div>
+      <div class="prop"><div class="n">② 조례로 묶기 <span style="font-weight:600;color:var(--muted)">— 박영재</span></div><p>「가칭 경기지역학 및 라키비움 활성화 지원 조례」로 상설협의체·지속예산·인력배치·상설 코디네이터를 담자는 제안입니다.</p></div>
+      <div class="prop"><div class="n">③ 법·시행령의 표준화 <span style="font-weight:600;color:var(--muted)">— 홍원의</span></div><p>지방문화원진흥법과 시행령 별표에 인력·예산 표준을 넣어 문화원 간 격차를 막자는 제안입니다.</p></div>
+      <div class="prop"><div class="n">④ 표준과 동의서 먼저 <span style="font-weight:600;color:var(--muted)">— 최영화</span></div><p>예산 없이 지금 할 수 있는 일로, 메타데이터 표준과 동의서 양식을 만들어 31개 문화원이 함께 교육받고 협약하자는 제안입니다.</p></div>
+      <div class="prop"><div class="n">⑤ 경기지역 표준 메타데이터 가이드라인 <span style="font-weight:600;color:var(--muted)">— 박영재</span></div><p>「그릇」을 경기도가 먼저 잘 만들어 두면 다른 도가 따라올 수 있다는 제안입니다. 한탄강처럼 주제 단위로 그릇을 만들면 여러 지역이 함께 담깁니다.</p></div>
+      <div class="prop"><div class="n">⑥ 다크 아카이브 <span style="font-weight:600;color:var(--muted)">— 박영재</span></div><p>동의가 어렵거나 소재가 불분명한 자료는 공개하지 않고 모아만 두자는 제안입니다. 지금 모아 두지 않으면 사라지기 때문입니다.</p></div>
+      <div class="prop"><div class="n">⑦ 창조적 문화 돌봄 <span style="font-weight:600;color:var(--muted)">— 최영화</span></div><p>생애사 아카이브를 복지기관과 함께 만들고 복지 예산과 연계해 확산하자는 제안입니다.</p></div>
+      <div class="prop"><div class="n">⑧ 학교 TF에 들어가기 <span style="font-weight:600;color:var(--muted)">— 박영재 · 참석 연구자</span></div><p>2022 지역연계 교육과정으로 지역 교과서 수정이 가능하니, 학교 선생님들이 꾸리는 TF에 자료를 대거나 함께 꾸리자는 제안입니다.</p></div>
+      <div class="prop"><div class="n">⑨ 인천·경기의 학제적 합의 <span style="font-weight:600;color:var(--muted)">— 김성준</span></div><p>전국 문화원이 지역학을 하면서도 서로 모르니, 인천·경기만이라도 학술적·학제적 개념을 정리해 내년 의제로 끌고 가자는 제안입니다.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 다음 회차 ===== -->
+<section id="next">
+  <div class="shead" data-sec>
+    <div class="snum">6</div>
+    <h2>다음 회차<small>지역학 길찾기 4+1 — 마지막 자리</small></h2>
+    <div class="caret">▼</div>
+  </div>
+  <div class="sbody">
+    <div class="tw">
+      <table>
+        <thead><tr><th>회차</th><th>일시</th><th>주제</th></tr></thead>
+        <tbody>
+          <tr><td class="k">콜로키움 01</td><td>2026. 8. 28.(금)</td><td>인천·경기 공동 — 초광역 지역학 논의 <span class="detail">(종료)</span></td></tr>
+          <tr><td class="k">콜로키움 02</td><td>2026. 9. 1.(화)</td><td>AI 시대 지역학의 전환, 지식에서 실천으로 <span class="detail">(종료)</span></td></tr>
+          <tr><td class="k">콜로키움 03</td><td>2026. 9. 8.(화)</td><td>문화원의 시민 참여 지역학 사례와 유형 <span class="detail">(종료)</span></td></tr>
+          <tr class="hl"><td class="k">콜로키움 04</td><td>2026. 9. 15.(화)</td><td>지역문화원의 선순환과 경기지역학의 미래 — 경기·인천 공동 회차 <span class="detail">(이 기록)</span></td></tr>
+          <tr><td class="k">포럼</td><td>2026. 9. 29.(화) 14:00~18:00</td><td>시민지역학과 지역문화 생태계 · <strong>경기상상캠퍼스 교육1964 2층 교육랩5</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="star">
+      <span class="tag">★ 처장이 마지막에 묶은 여섯 — 다음에 할 것</span>
+      <div class="take">
+        <div class="tk"><p><strong>경기지역학 플랫폼협의체(가칭) 발족을 어떻게 할 것인가</strong> — 간사를 어디에 두고 첫 의제를 누가 정하는가</p></div>
+        <div class="tk"><p><strong>학문으로서의 지역학과 실천으로서의 지역학을 어떻게 구분할 것인가</strong> — 9/29 전에 정해야 합니다</p></div>
+        <div class="tk"><p><strong>경기도 메모리를 어떻게 할 것인가</strong> — 광역 단위 아카이브의 현실과 향후 방향</p></div>
+        <div class="tk"><p><strong>학교 진입 전략이 필요합니다</strong> — 지역학의 학교교육 연계 문제</p></div>
+        <div class="tk"><p><strong>창조적 문화 돌봄</strong> — 복지 × 문화 협력 구조 만들기 (복지 예산과의 연계)</p></div>
+        <div class="tk"><p><strong>로컬 비즈니스 모델까지 확산 가능하지 않을까</strong> — 수익 환류 구조 만들기</p></div>
+      </div>
+      <p style="margin-top:12px"><strong>그리고 이것을 굴리는 방법</strong> — ① 할 것 정하기 ② 누가 하는지 정하기
+      ③ 안 되면 안 된 이유 공유하기 ④ 안 된 것은 협력·연대하여 같이 해결하기 ⑤ 성과(정량·정성) 나누기</p>
+    </div>
+
+    <h3>9월 29일 포럼에서 나올 것</h3>
+    <ul class="clean">
+      <li><strong>경기문화재단</strong>이 구상하는 바를 밝힙니다</li>
+      <li><strong>경기도문화원연합회</strong>가 31개 시군문화원과 지역학·지역연구·지역아카이브를 어떤 방식으로 가져갈지 방향을 냅니다</li>
+      <li><strong>대학</strong> 쪽에서 지역연구 <strong>인력 양성</strong>에 관한 제안이 나올 예정입니다 — 지역을 연구하는 학생들이 계속 생산되는데 이들을 어떻게 할 것인가</li>
+      <li>9/8과 9/15에 나온 <strong>강진갑 선생의 반문</strong>(대가를 주면 예산만큼만 참여시키게 된다)이 정리되어 나옵니다</li>
+    </ul>
+
+    <h3>확인이 필요한 것</h3>
+    <ul class="clean">
+      <li>🔴 <strong>포럼 대주제에 「시민」을 넣을 것인가 뺄 것인가</strong> — 경기학회 회장·처장 간 9/29 전 확정</li>
+      <li>경기도 <strong>시행계획(12월 문체부 제출)</strong>에 지역학을 어떻게 넣을 것인가 — 경기도 문화정책 담당</li>
+      <li><strong>경기도 메모리의 소관</strong> — 재단·경기도서관·연합회 중 누구이며 이관이 가능한가</li>
+      <li><strong>11월 3일 경기도청 설명회</strong>에 누가 갈 것인가</li>
+      <li>한국문화원연합회 <strong>제2차 기본계획</strong>에 우리 의견을 넣을 창구</li>
+      <li>활용 지표 — <strong>수업 1회를 1건으로 할지 교재 자체를 1건으로 할지</strong></li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div><strong>기록</strong> 경기도문화원연합회 · 2026 경기지역학 네트워크 「지역학 길찾기 4+1」</div>
+  <div style="margin-top:6px"><strong>근거</strong> 자료집 통합본(발표문 2편 · 토론문 9편, 51쪽) 및 당일 발언 — 발표부 57분 · 지정토론부 1시간 26분 · 종합토론 54분</div>
+  <div style="margin-top:6px"><strong>실명 표기</strong> 발표자 · 지정토론자 · 사회자까지만 실명으로 적었습니다. 플로어 발언은 역할로 적었습니다</div>
+  <div style="margin-top:10px;font-size:12px">
+    ※ <strong>연합회·경기학회 확정 전 검토본입니다.</strong> 발언 요지는 정리 과정에서 뜻이 달라졌을 수 있습니다 —
+    사실과 다른 부분을 알려 주시면 그대로 고치겠습니다 · 인용하실 문장은 <strong>자료집 원문</strong>에서 가져와 주십시오
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('[data-sec]').forEach(function(h){
+    h.addEventListener('click', function(){
+      var bodies = h.parentElement.querySelectorAll(':scope > .sbody');
+      var b = bodies[bodies.length-1];
+      if(!b) return;
+      b.classList.toggle('hidden');
+      h.classList.toggle('closed');
+    });
+  });
+  var fb = document.getElementById('focusBtn');
+  try{ if(localStorage.getItem('colo-focus')==='1'){ document.body.classList.add('focus'); fb.classList.add('active'); } }catch(e){}
+  fb.addEventListener('click', function(){
+    var on = document.body.classList.toggle('focus');
+    fb.classList.toggle('active', on);
+    try{ localStorage.setItem('colo-focus', on?'1':'0'); }catch(e){}
+  });
+  var tb = document.getElementById('themeBtn');
+  try{ var saved = localStorage.getItem('colo-theme'); if(saved) document.documentElement.setAttribute('data-theme', saved); }catch(e){}
+  tb.addEventListener('click', function(){
+    var cur = document.documentElement.getAttribute('data-theme');
+    var isDark = cur ? cur==='dark' : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    var next = isDark ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    try{ localStorage.setItem('colo-theme', next); }catch(e){}
+  });
+  var secs = Array.prototype.slice.call(document.querySelectorAll('section[id]'));
+  var links = Array.prototype.slice.call(document.querySelectorAll('#nav a'));
+  var bar = document.getElementById('prog-bar');
+  function onScroll(){
+    var y = window.scrollY + 100, cur = secs[0];
+    secs.forEach(function(s){ if(s.offsetTop <= y) cur = s; });
+    links.forEach(function(a){ a.classList.toggle('on', a.getAttribute('href') === '#'+cur.id); });
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = h>0 ? (window.scrollY/h*100)+'%' : '0%';
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  onScroll();
+})();
+</script>
+</body>
+</html>
